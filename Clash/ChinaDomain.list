@@ -21,6 +21,9 @@ DOMAIN-SUFFIX,snapdrop.net
 # FastLink API
 DOMAIN-SUFFIX,lipulai.com
 
+# Aliyun Drive
+DOMAIN-SUFFIX,aliyundrive.net
+
 # CN域名直连(中国|公司|网络)
 DOMAIN-SUFFIX,cn
 DOMAIN-SUFFIX,xn--fiqs8s
