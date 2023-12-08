@@ -1,6 +1,7 @@
 # 内容: JetbrainAi
 # 数量: 2条
 # Author: Bryan
-DOMAIN-KEYWORD,JetBrainsAi
-DOMAIN-SUFFIX,grazie.aws.intellij.net
+DOMAIN-KEYWORD,grazie.aws.intellij.net
+DOMAIN-KEYWORD,grazie.ai
+DOMAIN-SUFFIX,api.app.prod.grazie.aws.intellij.net
 DOMAIN-SUFFIX,grazie.ai
