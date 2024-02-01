@@ -1,0 +1,4 @@
+[submodule "SingBox/Rules"]
+	path = SingBox/Rules
+	url = https://github.com/MetaCubeX/meta-rules-dat.git
+	branch = sing
