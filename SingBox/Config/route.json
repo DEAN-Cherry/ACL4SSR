@@ -1,0 +1,276 @@
+{
+  "route": {
+    "rules": [
+      { "protocol": "dns", "outbound": "dns-out" },
+      { "clash_mode": "Global", "outbound": "GLOBAL" },
+      { "clash_mode": "Direct", "outbound": "DIRECT" },
+      { "rule_set": "direct-0", "outbound": "🎯 全球直连" },
+      { "rule_set": "direct-1", "outbound": "🎯 全球直连" },
+      { "rule_set": "ads", "outbound": "🛑 广告拦截" },
+      { "rule_set": "adb-1", "outbound": "🆎 AdBlock" },
+      { "rule_set": "adb-2", "outbound": "🆎 AdBlock" },
+      { "rule_set": "privacy", "outbound": "🛡️ 隐私防护" },
+      { "rule_set": "google-fcm", "outbound": "📢 谷歌FCM" },
+      { "rule_set": "direct-2", "outbound": "🎯 全球直连" },
+      { "rule_set": "direct-3", "outbound": "🎯 全球直连" },
+      { "rule_set": "microsoft-bing", "outbound": "Ⓜ️ 微软Bing" },
+      { "rule_set": "microsoft-cloud", "outbound": "Ⓜ️ 微软云盘" },
+      { "rule_set": "microsoft-service", "outbound": "Ⓜ️ 微软服务" },
+      { "rule_set": "apple", "outbound": "🍎 苹果服务" },
+      { "rule_set": "telegram", "outbound": "📲 电报消息" },
+      { "rule_set": "openai", "outbound": "💬 OpenAi" },
+      { "rule_set": "jbai", "outbound": "👾 JetBrainsAI" },
+      { "rule_set": "netease-music", "outbound": "🎶 网易音乐" },
+      { "rule_set": "games-1", "outbound": "🎮 游戏平台" },
+      { "rule_set": "games-2", "outbound": "🎮 游戏平台" },
+      { "rule_set": "games-3", "outbound": "🎮 游戏平台" },
+      { "rule_set": "games-4", "outbound": "🎮 游戏平台" },
+      { "rule_set": "games-5", "outbound": "🎮 游戏平台" },
+      { "rule_set": "youtube", "outbound": "🎥 奈飞视频" },
+      { "rule_set": "baha", "outbound": "📺 巴哈姆特" },
+      { "rule_set": "bilibili-hmt", "outbound": "📺 哔哩哔哩" },
+      { "rule_set": "bilibili", "outbound": "📺 哔哩哔哩" },
+      { "rule_set": "media-cn", "outbound": "🌏 国内媒体" },
+      { "rule_set": "media-proxy", "outbound": "🌍 国外媒体" },
+      { "rule_set": "proxy", "outbound": "🚀 节点选择" },
+      { "rule_set": "server", "outbound": "☁️ CloudFlare Server" },
+      { "rule_set": "cn", "outbound": "🎯 全球直连" },
+      { "rule_set": "cnip", "outbound": "🎯 全球直连" },
+      { "rule_set": "download", "outbound": "🎯 全球直连" }
+    ],
+    "rule_set": [
+      {
+        "tag": "direct-0",
+        "type": "remote",
+        "format": "binary",
+        "url": "https://cdn.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@sing/bm7/Lan.srs",
+        "download_detour": "DIRECT"
+      },
+      {
+        "tag": "direct-1",
+        "type": "remote",
+        "format": "binary",
+        "url": "https://cdn.jsdelivr.net/gh/DEAN-Cherry/ACL4SSR@dev/SingBox/CustomRules/UnBan.srs",
+        "download_detour": "DIRECT"
+      },
+      {
+        "tag": "ads",
+        "type": "remote",
+        "format": "binary",
+        "url": "https://cdn.jsdelivr.net/gh/DEAN-Cherry/ACL4SSR@dev/SingBox/CustomRules/BanAD.srs",
+        "download_detour": "DIRECT"
+      },
+      {
+        "tag": "adb-1",
+        "type": "remote",
+        "format": "binary",
+        "url": "https://cdn.jsdelivr.net/gh/DEAN-Cherry/ACL4SSR@dev/SingBox/CustomRules/BanEasyListChina.srs",
+        "download_detour": "DIRECT"
+      },
+      {
+        "tag": "adb-2",
+        "type": "remote",
+        "format": "binary",
+        "url": "https://cdn.jsdelivr.net/gh/DEAN-Cherry/ACL4SSR@dev/SingBox/CustomRules/BanEasyList.srs",
+        "download_detour": "DIRECT"
+      },
+      {
+        "tag": "privacy",
+        "type": "remote",
+        "format": "binary",
+        "url": "https://cdn.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@sing/bm7/EasyPrivacy.srs",
+        "download_detour": "DIRECT"
+      },
+      {
+        "tag": "google-fcm",
+        "type": "remote",
+        "format": "binary",
+        "url": "https://cdn.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@sing/bm7/GoogleFCM.srs",
+        "download_detour": "DIRECT"
+      },
+      {
+        "tag": "direct-2",
+        "type": "remote",
+        "format": "binary",
+        "url": "https://cdn.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@sing/geo/geosite/google-cn.srs",
+        "download_detour": "DIRECT"
+      },
+      {
+        "tag": "direct-3",
+        "type": "remote",
+        "format": "binary",
+        "url": "https://cdn.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@sing/bm7/SteamCN.srs",
+        "download_detour": "DIRECT"
+      },
+      {
+        "tag": "microsoft-bing",
+        "type": "remote",
+        "format": "binary",
+        "url": "https://cdn.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@sing/geo/geosite/bing@cn.srs",
+        "download_detour": "DIRECT"
+      },
+      {
+        "tag": "microsoft-cloud",
+        "type": "remote",
+        "format": "binary",
+        "url": "https://cdn.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@sing/bm7/OneDrive.srs",
+        "download_detour": "DIRECT"
+      },
+      {
+        "tag": "microsoft-service",
+        "type": "remote",
+        "format": "binary",
+        "url": "https://cdn.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@sing/bm7/Microsoft.srs",
+        "download_detour": "DIRECT"
+      },
+      {
+        "tag": "apple",
+        "type": "remote",
+        "format": "binary",
+        "url": "https://cdn.jsdelivr.net/gh/DEAN-Cherry/ACL4SSR@dev/SingBox/CustomRules/Apple.srs",
+        "download_detour": "DIRECT"
+      },
+      {
+        "tag": "telegram",
+        "type": "remote",
+        "format": "binary",
+        "url": "https://cdn.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@sing/bm7/Telegram.srs",
+        "download_detour": "DIRECT"
+      },
+      {
+        "tag": "openai",
+        "type": "remote",
+        "format": "binary",
+        "url": "https://cdn.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@sing/bm7/OpenAI.srs",
+        "download_detour": "DIRECT"
+      },
+      {
+        "tag": "jbai",
+        "type": "remote",
+        "format": "binary",
+        "url": "https://cdn.jsdelivr.net/gh/DEAN-Cherry/ACL4SSR@dev/SingBox/CustomRules/JetBrainsAI.srs",
+        "download_detour": "DIRECT"
+      },
+      {
+        "tag": "netease-music",
+        "type": "remote",
+        "format": "binary",
+        "url": "https://cdn.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@sing/bm7/NetEaseMusic.srs",
+        "download_detour": "DIRECT"
+      },
+      {
+        "tag": "games-1",
+        "type": "remote",
+        "format": "binary",
+        "url": "https://cdn.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@sing/geo/geosite/epicgames.srs",
+        "download_detour": "DIRECT"
+      },
+      {
+        "tag": "games-2",
+        "type": "remote",
+        "format": "binary",
+        "url": "https://cdn.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@sing/bm7/Origin.srs",
+        "download_detour": "DIRECT"
+      },
+      {
+        "tag": "games-3",
+        "type": "remote",
+        "format": "binary",
+        "url": "https://cdn.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@sing/bm7/PlayStation.srs",
+        "download_detour": "DIRECT"
+      },
+      {
+        "tag": "games-4",
+        "type": "remote",
+        "format": "binary",
+        "url": "https://cdn.jsdelivr.net/gh/DEAN-Cherry/ACL4SSR@dev/SingBox/CustomRules/Steam.srs",
+        "download_detour": "DIRECT"
+      },
+      {
+        "tag": "games-5",
+        "type": "remote",
+        "format": "binary",
+        "url": "https://cdn.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@sing/bm7/Nintendo.srs",
+        "download_detour": "DIRECT"
+      },
+      {
+        "tag": "youtube",
+        "type": "remote",
+        "format": "binary",
+        "url": "https://cdn.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@sing/bm7/YouTube.srs",
+        "download_detour": "DIRECT"
+      },
+      {
+        "tag": "baha",
+        "type": "remote",
+        "format": "binary",
+        "url": "https://cdn.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@sing/bm7/YouTube.srs",
+        "download_detour": "DIRECT"
+      },
+      {
+        "tag": "bilibili-hmt",
+        "type": "remote",
+        "format": "binary",
+        "url": "https://cdn.jsdelivr.net/gh/DEAN-Cherry/ACL4SSR@dev/SingBox/CustomRules/BilibiliHMT.srs",
+        "download_detour": "DIRECT"
+      },
+      {
+        "tag": "bilibili",
+        "type": "remote",
+        "format": "binary",
+        "url": "https://cdn.jsdelivr.net/gh/DEAN-Cherry/ACL4SSR@dev/SingBox/CustomRules/Bilibili.srs",
+        "download_detour": "DIRECT"
+      },
+      {
+        "tag": "media-cn",
+        "type": "remote",
+        "format": "binary",
+        "url": "https://cdn.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@sing/bm7/ChinaMedia.srs",
+        "download_detour": "DIRECT"
+      },
+      {
+        "tag": "media-proxy",
+        "type": "remote",
+        "format": "binary",
+        "url": "https://cdn.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@sing/bm7/ChinaNoMedia.srs",
+        "download_detour": "DIRECT"
+      },
+      {
+        "tag": "proxy",
+        "type": "remote",
+        "format": "binary",
+        "url": "https://cdn.jsdelivr.net/gh/DEAN-Cherry/ACL4SSR@dev/SingBox/CustomRules/Proxy.srs",
+        "download_detour": "DIRECT"
+      },
+      {
+        "tag": "server",
+        "type": "remote",
+        "format": "binary",
+        "url": "https://cdn.jsdelivr.net/gh/DEAN-Cherry/ACL4SSR@dev/SingBox/CustomRules/BryanServer.srs",
+        "download_detour": "DIRECT"
+      },
+      {
+        "tag": "cn",
+        "type": "remote",
+        "format": "binary",
+        "url": "https://cdn.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@sing/bm7/ChinaNoMedia.srs",
+        "download_detour": "DIRECT"
+      },
+      {
+        "tag": "cnip",
+        "type": "remote",
+        "format": "binary",
+        "url": "https://cdn.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@sing/bm7/ChinaIPs.srs",
+        "download_detour": "DIRECT"
+      },
+      {
+        "tag": "download",
+        "type": "remote",
+        "format": "binary",
+        "url": "https://cdn.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@sing/bm7/Download.srs",
+        "download_detour": "DIRECT"
+      }
+    ],
+    "final": "🐟 漏网之鱼"
+  }
+}
