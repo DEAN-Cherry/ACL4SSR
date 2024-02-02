@@ -410,6 +410,19 @@
         "🚀 手动切换",
         "DIRECT"
       ]
+    },
+    {
+      "tag": "REJECT",
+      "type": "block"
+    },
+    {
+      "tag": "DIRECT",
+      "type": "direct",
+      "domain_strategy": "prefer_ipv6"
+    },
+    {
+      "tag": "dns-out",
+      "type": "dns"
     }
   ],
   "route": {
