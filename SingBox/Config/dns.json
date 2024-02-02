@@ -1,0 +1,64 @@
+{
+  "dns": {
+    "servers": [
+      { "tag": "dns_block", "address": "rcode://success" },
+      {
+        "tag": "dns_direct",
+        "address": "h3://dns.alidns.com/dns-query",
+        "address_resolver": "dns_ip",
+        "detour": "DIRECT"
+      },
+      {
+        "tag": "dns_proxy",
+        "address": "https://cloudflare-dns.com/dns-query",
+        "address_resolver": "dns_ip"
+      },
+      {
+        "tag": "dns_ip",
+        "address": "https://223.5.5.5/dns-query",
+        "detour": "DIRECT"
+      },
+      { "tag": "dns_fakeip", "address": "fakeip" }
+    ],
+    "rules": [
+      { "outbound": "any", "server": "dns_ip" },
+      { "clash_mode": "Global", "server": "dns_fakeip" },
+      { "clash_mode": "Direct", "server": "dns_direct" },
+      {
+        "rule_set": ["ads", "adb-1", "adb-2", "privacy"],
+        "server": "dns_block"
+      },
+      {
+        "rule_set": [
+          "direct-0",
+          "direct-1",
+          "direct-2",
+          "direct-3",
+          "apple",
+          "netease-music",
+          "bilibili",
+          "media-cn",
+          "cn",
+          "cn-ip",
+          "download"
+        ],
+        "query_type": ["A", "AAAA"],
+        "server": "dns_direct"
+      },
+      {
+        "rule_set": ["proxy"],
+        "query_type": ["A", "AAAA"],
+        "server": "dns_fakeip"
+      }
+    ],
+    "final": "dns_direct",
+    "strategy": "prefer_ipv6",
+    "independent_cache": true,
+    "reverse_mapping": true,
+    "fakeip": {
+      "enabled": true,
+      "inet4_range": "198.18.0.0/15",
+      "inet6_range": "fc00::/18"
+    }
+  }
+}
