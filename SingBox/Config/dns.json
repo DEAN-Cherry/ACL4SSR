@@ -40,6 +40,7 @@
           "media-cn",
           "cn",
           "cn-ip",
+          "cloud-cn",
           "download"
         ],
         "query_type": ["A", "AAAA"],
