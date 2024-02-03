@@ -14,8 +14,9 @@
         "address_resolver": "dns_ip"
       },
       {
-        "tag": "dns_dot",
-        "address": "dot://"
+        "tag": "dns_google",
+        "address": "tls://dns.google",
+        "address_resolver": "dns_direct"
       },
       {
         "tag": "dns_ip",
@@ -34,32 +35,36 @@
       },
       {
         "query_type": ["A", "AAAA"],
-        "server": ["53-dot", "53-doh", "53-doq", "53-doh3"],
+        "server": ["dns_google", "dns_proxy", "dns_direct", "dns_ip"],
         "fallback_rule": {
-          "rule_set": "cn-ip",
+          "rule_set": [
+            "direct-0",
+            "direct-1",
+            "direct-2",
+            "direct-3",
+            "apple",
+            "netease-music",
+            "bilibili",
+            "media-cn",
+            "cn",
+            "cn-ip",
+            "cloud-cn",
+            "download"
+          ],
           "invert": true
         }
       },
       {
         "rule_set": [
-          "direct-0",
-          "direct-1",
-          "direct-2",
-          "direct-3",
-          "apple",
-          "netease-music",
-          "bilibili",
-          "media-cn",
-          "cn",
-          "cn-ip",
-          "cloud-cn",
-          "download"
+          "proxy",
+          "youtube",
+          "netflix",
+          "baha",
+          "media-proxy",
+          "server",
+          "openai",
+          "jbai"
         ],
-        "query_type": ["A", "AAAA"],
-        "server": "dns_direct"
-      },
-      {
-        "rule_set": ["proxy"],
         "query_type": ["A", "AAAA"],
         "server": "dns_fakeip"
       }
