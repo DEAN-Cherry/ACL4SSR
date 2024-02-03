@@ -17,7 +17,7 @@
       {
         "tag": "dns_google",
         "address": "tls://dns.google",
-        "address_resolver": "dns_direct"
+        "address_resolver": "dns_ip"
       },
       {
         "tag": "dns_ip",
