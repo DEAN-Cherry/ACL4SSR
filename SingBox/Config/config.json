@@ -516,6 +516,7 @@
       { "rule_set": "direct-0", "outbound": "🎯 全球直连" },
       { "rule_set": "direct-1", "outbound": "🎯 全球直连" },
       { "rule_set": "ads", "outbound": "🛑 广告拦截" },
+      { "rule_set": "ads-p", "outbound": "🍃 应用净化" },
       { "rule_set": "adb-1", "outbound": "🆎 AdBlock" },
       { "rule_set": "adb-2", "outbound": "🆎 AdBlock" },
       { "rule_set": "privacy", "outbound": "🛡️ 隐私防护" },
@@ -546,7 +547,7 @@
       { "rule_set": "server", "outbound": "☁️ CloudFlare Server" },
       { "rule_set": "cn", "outbound": "🎯 全球直连" },
       { "rule_set": "cnip", "outbound": "🎯 全球直连" },
-      {"rule_set":"cloud-cn","outbound":"🎯 全球直连"},
+      { "rule_set": "cloud-cn", "outbound": "🎯 全球直连" },
       { "rule_set": "download", "outbound": "🎯 全球直连" }
     ],
     "rule_set": [
@@ -569,6 +570,13 @@
         "type": "remote",
         "format": "binary",
         "url": "https://cdn.jsdelivr.net/gh/DEAN-Cherry/ACL4SSR@dev/SingBox/CustomRules/BanAD.srs",
+        "download_detour": "DIRECT"
+      },
+      {
+        "tag": "ads-p",
+        "type": "remote",
+        "format": "binary",
+        "url": "https://cdn.jsdelivr.net/gh/DEAN-Cherry/ACL4SSR@dev/SingBox/CustomRules/ProgramAD.srs",
         "download_detour": "DIRECT"
       },
       {
@@ -617,7 +625,7 @@
         "tag": "microsoft-bing",
         "type": "remote",
         "format": "binary",
-        "url": "https://cdn.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@sing/geo/geosite/bing@cn.srs",
+        "url": "https://cdn.jsdelivr.net/gh/DEAN-Cherry/ACL4SSR@dev/SingBox/CustomRules/Bing.srs",
         "download_detour": "DIRECT"
       },
       {
