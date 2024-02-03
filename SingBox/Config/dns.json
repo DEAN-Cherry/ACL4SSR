@@ -4,33 +4,41 @@
       { "tag": "dns_block", "address": "rcode://success" },
       {
         "tag": "dns_direct",
-        "address": "h3://dns.alidns.com/dns-query",
+        "address": "https://dns.alidns.com/dns-query",
         "address_resolver": "dns_ip",
+        "strategy":"prefer_ipv6",
         "detour": "DIRECT"
       },
       {
         "tag": "dns_proxy",
         "address": "https://cloudflare-dns.com/dns-query",
-        "address_resolver": "dns_ip"
+        "address_resolver": "dns_ip",
+        "strategy":"prefer_ipv4"
+      },
+      {
+        "tag": "dns_google",
+        "address": "https://dns.google/dns-query",
+        "address_resolver": "dns_ip",
+        "strategy":"prefer_ipv4"
       },
       {
         "tag": "dns_ip",
-        "address": "https://223.5.5.5/dns-query",
+        "address": "223.5.5.5",
         "detour": "DIRECT"
       },
       { "tag": "dns_fakeip", "address": "fakeip" }
     ],
     "rules": [
-      { "outbound": "any", "server": "dns_ip", "disable_cache": true },
+      { "outbound": "any", "server": "dns_direct", "disable_cache": true },
       { "clash_mode": "Global", "server": "dns_fakeip" },
       { "clash_mode": "Direct", "server": "dns_direct" },
       {
-        "rule_set": ["ads", "adb-1", "adb-2", "privacy"],
+        "rule_set": ["ads", "adb-1", "adb-2", "ads-p", "privacy"],
         "server": "dns_block"
       },
       {
         "query_type": ["A", "AAAA"],
-        "server": ["dns_proxy", "dns_direct", "dns_ip"],
+        "server": ["dns_proxy", "dns_google", "dns_direct", "dns_ip"],
         "fallback_rule": {
           "rule_set": [
             "direct-0",
@@ -50,16 +58,6 @@
         }
       },
       {
-        "rule_set": [
-          "proxy",
-          "youtube",
-          "netflix",
-          "baha",
-          "media-proxy",
-          "server",
-          "openai",
-          "jbai"
-        ],
         "query_type": ["A", "AAAA"],
         "server": "dns_fakeip"
       }
