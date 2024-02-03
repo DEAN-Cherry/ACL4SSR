@@ -277,6 +277,11 @@
     },
     {
       "type": "selector",
+      "tag": "🍃 应用净化",
+      "outbounds": ["REJECT", "DIRECT"]
+    },
+    {
+      "type": "selector",
       "tag": "🆎 AdBlock",
       "outbounds": ["REJECT", "DIRECT"]
     },
