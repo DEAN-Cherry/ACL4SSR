@@ -17,12 +17,10 @@
       ]
     },
     {
-      "type": "urltest",
+      "type": "selector",
       "tag": "🚀 手动切换",
       "providers": ["🛫 FastLink", "🛫 NiceCloud"],
-      "url": "http://www.apple.com/library/test/success.html",
-      "interval": "5m",
-      "tolerance": 50
+      "excludes":"官网|客户端"
     },
     {
       "type": "urltest",
