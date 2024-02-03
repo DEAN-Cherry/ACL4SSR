@@ -3,6 +3,7 @@
   "rules": [
     {
       "domain_suffix": [
+        "qbittorrent.org",
         "1password.com",
         "adguard.org",
         "bit.no.com",
