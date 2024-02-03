@@ -3,13 +3,13 @@
   "rules": [
     {
       "domain_suffix": [
+        "baike.baidu.com",
         "ol.epicgames.com",
         "dizhensubao.getui.com",
         "googletraveladservices.com",
         "tracking-protection.cdn.mozilla.net",
         "koodomobile.com",
-        "koodomobile.ca",
-        "baike.baidu.com"
+        "koodomobile.ca"
       ],
       "domain": [
         "dl.google.com",
