@@ -26,7 +26,7 @@
       "type": "urltest",
       "tag": "♻️ 自动选择",
       "providers": ["🛫 FastLink", "🛫 NiceCloud"],
-      "excludes": "游戏",
+      "excludes": "游戏|官网|客户端|福利",
       "url": "http://www.apple.com/library/test/success.html",
       "interval": "5m",
       "tolerance": 50
