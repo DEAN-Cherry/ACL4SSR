@@ -804,7 +804,7 @@
                 "outbound": "🎯 全球直连"
             },
             {
-                "rule_set": "cnip",
+                "rule_set": "cn-ip",
                 "outbound": "🎯 全球直连"
             },
             {
@@ -828,7 +828,7 @@
                 "tag": "direct-1",
                 "type": "remote",
                 "format": "binary",
-                "url": "https://cdn.jsdelivr.net/gh/DEAN-Cherry/ACL4SSR@dev/SingBox/CustomRules/UnBan0.srs",
+                "url": "https://cdn.jsdelivr.net/gh/DEAN-Cherry/ACL4SSR@dev/SingBox/CustomRules/UnBan.srs",
                 "download_detour": "DIRECT"
             },
             {
@@ -1049,7 +1049,7 @@
                 "download_detour": "DIRECT"
             },
             {
-                "tag": "cnip",
+                "tag": "cn-ip",
                 "type": "remote",
                 "format": "binary",
                 "url": "https://cdn.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@sing/bm7/ChinaIPs.srs",

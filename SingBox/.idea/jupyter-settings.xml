@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="JupyterPersistentConnectionParameters">
+    <option name="moduleParameters">
+      <map>
+        <entry key="$USER_HOME$/Desktop/人工智能导论-作业3-project-dog-classification/.idea/人工智能导论-作业3-project-dog-classification.iml">
+          <value>
+            <JupyterConnectionParameters>
+              <option name="managed" value="true" />
+            </JupyterConnectionParameters>
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../../Python/AI/Computer Vision/.idea/Computer vision.iml">
+          <value>
+            <JupyterConnectionParameters>
+              <option name="managed" value="true" />
+              <option name="port" value="9999" />
+            </JupyterConnectionParameters>
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../../Python/AI/NLP/KG_Tools/structured-data-parse/.idea/structured-data-parse.iml">
+          <value>
+            <JupyterConnectionParameters>
+              <option name="managed" value="true" />
+              <option name="sdkHomePath" value="C:\Users\Bryan\anaconda3\envs\hanlp\python.exe" />
+            </JupyterConnectionParameters>
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+</project>
