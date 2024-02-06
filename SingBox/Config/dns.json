@@ -4,9 +4,10 @@
       { "tag": "dns_block", "address": "rcode://success" },
       {
         "tag": "dns_direct",
-        "address": "https://dns.alidns.com/dns-query",
+        "address": "h3://dns.alidns.com/dns-query",
         "address_resolver": "dns_ip",
         "strategy": "prefer_ipv6",
+        "address_strategy": "prefer_ipv6",
         "detour": "DIRECT"
       },
       {
@@ -19,16 +20,20 @@
       {
         "tag": "dns_proxy",
         "address": "https://cloudflare-dns.com/dns-query",
+        "strategy": "prefer_ipv6",
+        "address_strategy": "prefer_ipv6",
         "address_resolver": "dns_ip"
       },
       {
         "tag": "dns_google",
-        "address": "https://dns.google/dns-query",
+        "address": "h3://dns.google/dns-query",
+        "strategy": "prefer_ipv6",
+        "address_strategy": "prefer_ipv6",
         "address_resolver": "dns_ip"
       },
       {
         "tag": "dns_ip",
-        "address": "223.5.5.5",
+        "address": "https://223.5.5.5/dns-query",
         "detour": "DIRECT"
       },
       { "tag": "dns_fakeip", "address": "fakeip" },
@@ -40,7 +45,7 @@
       { "clash_mode": "Direct", "server": "dns_direct" },
       {
         "query_type": ["A", "AAAA"],
-        "server": ["dns_direct", "dns_ip", "dns_tx", "dns_proxy", "dns_google"],
+        "server": ["dns_direct", "dns_tx", "dns_proxy", "dns_google"],
         "fallback_rule": {
           "rule_set": [
             "direct-0",
