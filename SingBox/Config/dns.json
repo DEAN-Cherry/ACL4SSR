@@ -6,30 +6,36 @@
         "tag": "dns_direct",
         "address": "https://dns.alidns.com/dns-query",
         "address_resolver": "dns_ip",
-        "strategy":"prefer_ipv6",
+        "strategy": "prefer_ipv6",
+        "detour": "DIRECT"
+      },
+      {
+        "tag": "dns_tx",
+        "address": "https://doh.pub/dns-query",
+        "address_resolver": "dns_ip",
+        "strategy": "prefer_ipv6",
         "detour": "DIRECT"
       },
       {
         "tag": "dns_proxy",
         "address": "https://cloudflare-dns.com/dns-query",
-        "address_resolver": "dns_ip",
-        "strategy":"prefer_ipv4"
+        "address_resolver": "dns_ip"
       },
       {
         "tag": "dns_google",
         "address": "https://dns.google/dns-query",
-        "address_resolver": "dns_ip",
-        "strategy":"prefer_ipv4"
+        "address_resolver": "dns_ip"
       },
       {
         "tag": "dns_ip",
         "address": "223.5.5.5",
         "detour": "DIRECT"
       },
-      { "tag": "dns_fakeip", "address": "fakeip" }
+      { "tag": "dns_fakeip", "address": "fakeip" },
+      { "tag": "local", "address": "local", "detour": "DIRECT" }
     ],
     "rules": [
-      { "outbound": "any", "server": "dns_direct", "disable_cache": true },
+      { "outbound": ["any"], "server": "dns_ip" },
       { "clash_mode": "Global", "server": "dns_fakeip" },
       { "clash_mode": "Direct", "server": "dns_direct" },
       {
@@ -38,7 +44,7 @@
       },
       {
         "query_type": ["A", "AAAA"],
-        "server": ["dns_proxy", "dns_google", "dns_direct", "dns_ip"],
+        "server": ["dns_direct", "dns_ip", "dns_tx"],
         "fallback_rule": {
           "rule_set": [
             "direct-0",
