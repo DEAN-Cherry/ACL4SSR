@@ -17,13 +17,29 @@
         "detour": "DIRECT"
       },
       {
+        "tag": "dns_tx",
+        "address": "https://doh.pub/dns-query",
+        "address_resolver": "dns_ip",
+        "strategy": "prefer_ipv6",
+        "detour": "DIRECT"
+      },
+      {
+        "tag": "dns_tx",
+        "address": "https://doh.pub/dns-query",
+        "address_resolver": "dns_ip",
+        "strategy": "prefer_ipv6",
+        "detour": "DIRECT"
+      },
+      {
         "tag": "dns_proxy",
         "address": "https://cloudflare-dns.com/dns-query",
+        "address_resolver": "dns_ip"
         "address_resolver": "dns_ip"
       },
       {
         "tag": "dns_google",
         "address": "https://dns.google/dns-query",
+        "address_resolver": "dns_ip"
         "address_resolver": "dns_ip"
       },
       {
@@ -33,8 +49,11 @@
       },
       { "tag": "dns_fakeip", "address": "fakeip" },
       { "tag": "local", "address": "local", "detour": "DIRECT" }
+      { "tag": "dns_fakeip", "address": "fakeip" },
+      { "tag": "local", "address": "local", "detour": "DIRECT" }
     ],
     "rules": [
+      { "outbound": ["any"], "server": "dns_ip" },
       { "outbound": ["any"], "server": "dns_ip" },
       { "clash_mode": "Global", "server": "dns_fakeip" },
       { "clash_mode": "Direct", "server": "dns_direct" },
@@ -44,22 +63,10 @@
       },
       {
         "query_type": ["A", "AAAA"],
+        "server": ["dns_direct", "dns_ip", "dns_tx", "dns_proxy", "dns_google"],
         "server": ["dns_direct", "dns_ip", "dns_tx"],
         "fallback_rule": {
-          "rule_set": [
-            "direct-0",
-            "direct-1",
-            "direct-2",
-            "direct-3",
-            "apple",
-            "netease-music",
-            "bilibili",
-            "media-cn",
-            "cn",
-            "cn-ip",
-            "cloud-cn",
-            "download"
-          ],
+          "rule_set": ["geosite-cn", "cn", "cn-ip", "cloud-cn", "download"],
           "invert": true
         }
       },
