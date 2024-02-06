@@ -39,14 +39,23 @@
       { "clash_mode": "Global", "server": "dns_fakeip" },
       { "clash_mode": "Direct", "server": "dns_direct" },
       {
-        "rule_set": ["ads", "adb-1", "adb-2", "ads-p", "privacy"],
-        "server": "dns_block"
-      },
-      {
         "query_type": ["A", "AAAA"],
         "server": ["dns_direct", "dns_ip", "dns_tx", "dns_proxy", "dns_google"],
         "fallback_rule": {
-          "rule_set": ["geosite-cn", "cn", "cn-ip", "cloud-cn", "download"],
+          "rule_set": [
+            "direct-0",
+            "direct-1",
+            "direct-2",
+            "direct-3",
+            "apple",
+            "netease-music",
+            "bilibili",
+            "media-cn",
+            "cn",
+            "cn-ip",
+            "cloud-cn",
+            "download"
+          ],
           "invert": true
         }
       },
