@@ -18,16 +18,21 @@
                 "detour": "DIRECT"
             },
             {
+                "tag": "dns_tx",
+                "address": "https://doh.pub/dns-query",
+                "address_resolver": "dns_ip",
+                "strategy": "prefer_ipv6",
+                "detour": "DIRECT"
+            },
+            {
                 "tag": "dns_proxy",
                 "address": "https://cloudflare-dns.com/dns-query",
-                "address_resolver": "dns_ip",
-                "strategy": "prefer_ipv4"
+                "address_resolver": "dns_ip"
             },
             {
                 "tag": "dns_google",
                 "address": "https://dns.google/dns-query",
-                "address_resolver": "dns_ip",
-                "strategy": "prefer_ipv4"
+                "address_resolver": "dns_ip"
             },
             {
                 "tag": "dns_ip",
@@ -37,13 +42,19 @@
             {
                 "tag": "dns_fakeip",
                 "address": "fakeip"
+            },
+            {
+                "tag": "local",
+                "address": "local",
+                "detour": "DIRECT"
             }
         ],
         "rules": [
             {
-                "outbound": "any",
-                "server": "dns_direct",
-                "disable_cache": true
+                "outbound": [
+                    "any"
+                ],
+                "server": "dns_ip"
             },
             {
                 "clash_mode": "Global",
@@ -69,21 +80,15 @@
                     "AAAA"
                 ],
                 "server": [
-                    "dns_proxy",
-                    "dns_google",
                     "dns_direct",
-                    "dns_ip"
+                    "dns_ip",
+                    "dns_tx",
+                    "dns_proxy",
+                    "dns_google"
                 ],
                 "fallback_rule": {
                     "rule_set": [
-                        "direct-0",
-                        "direct-1",
-                        "direct-2",
-                        "direct-3",
-                        "apple",
-                        "netease-music",
-                        "bilibili",
-                        "media-cn",
+                        "geosite-cn",
                         "cn",
                         "cn-ip",
                         "cloud-cn",
