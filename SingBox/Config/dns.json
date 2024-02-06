@@ -17,20 +17,6 @@
         "detour": "DIRECT"
       },
       {
-        "tag": "dns_tx",
-        "address": "https://doh.pub/dns-query",
-        "address_resolver": "dns_ip",
-        "strategy": "prefer_ipv6",
-        "detour": "DIRECT"
-      },
-      {
-        "tag": "dns_tx",
-        "address": "https://doh.pub/dns-query",
-        "address_resolver": "dns_ip",
-        "strategy": "prefer_ipv6",
-        "detour": "DIRECT"
-      },
-      {
         "tag": "dns_proxy",
         "address": "https://cloudflare-dns.com/dns-query",
         "address_resolver": "dns_ip"
@@ -49,7 +35,6 @@
       { "tag": "local", "address": "local", "detour": "DIRECT" }
     ],
     "rules": [
-      { "outbound": ["any"], "server": "dns_ip" },
       { "outbound": ["any"], "server": "dns_ip" },
       { "clash_mode": "Global", "server": "dns_fakeip" },
       { "clash_mode": "Direct", "server": "dns_direct" },
