@@ -47,8 +47,6 @@
       },
       { "tag": "dns_fakeip", "address": "fakeip" },
       { "tag": "local", "address": "local", "detour": "DIRECT" }
-      { "tag": "dns_fakeip", "address": "fakeip" },
-      { "tag": "local", "address": "local", "detour": "DIRECT" }
     ],
     "rules": [
       { "outbound": ["any"], "server": "dns_ip" },
