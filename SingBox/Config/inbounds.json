@@ -17,14 +17,15 @@
       "listen": "::",
       "listen_port": 7892,
       "sniff": true,
-      "sniff_override_destination": true
+      "sniff_override_destination": false
     }, {
       "type": "tproxy",
       "tag": "tproxy-in",
       "listen": "::",
       "listen_port": 7893,
       "sniff": true,
-      "sniff_override_destination": true
+      "sniff_override_destination": false
     }
   ]
 }
+

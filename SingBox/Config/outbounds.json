@@ -421,8 +421,7 @@
     },
     {
       "tag": "DIRECT",
-      "type": "direct",
-      "domain_strategy": "prefer_ipv6"
+      "type": "direct"
     },
     {
       "tag": "dns-out",
