@@ -1,0 +1,82 @@
+{
+  "rules": [
+    {
+      "enabled": true,
+      "query_type": ["SRV", "HTTPS"],
+      "server": "refused"
+    },
+    {
+      "outbound": ["direct", "OUTBOUNDLESS"],
+      "server": ["114dns", "alidns-udp", "dnspod-udp", "bytedance-dns"]
+    },
+    {
+      "outbound": "any",
+      "server": ["alidns-quic", "alidns-doh", "dnspod-doh"]
+    },
+    {
+      "rule_set": "category-ads-all-domain",
+      "disable_cache": true,
+      "server": "nxdomain"
+    },
+    {
+      "clash_mode": "全局直连",
+      "server": ["114dns", "alidns-udp", "dnspod-udp", "bytedance-dns"]
+    },
+    {
+      "domain_suffix": [".msftconnecttest.com", ".msftncsi.com"],
+      "server": ["114dns", "alidns-udp", "dnspod-udp", "bytedance-dns"]
+    },
+    {
+      "clash_mode": "全局代理",
+      "server": ["cf-dns", "open-dns", "google-dns"]
+    },
+    {
+      "query_type": ["A", "AAAA"],
+      "rule_set": ["proxy-domain", "tiktok-domain"],
+      "rewrite_ttl": 0,
+      "disable_cache": true,
+      "server": "fakedns"
+    },
+    {
+      "rule_set": ["proxy-domain", "tiktok-domain"],
+      "server": ["cf-dns", "open-dns", "google-dns"]
+    },
+    {
+      "rule_set": [
+        "push-domain",
+        "direct-domain",
+        "bytedance-domain",
+        "microsoft@cn-domain",
+        "apple@cn-domain",
+        "category-games@cn-domain",
+        "cn-domain"
+      ],
+      "server": ["114dns", "alidns-udp", "dnspod-udp", "bytedance-dns"]
+    },
+    {
+      "query_type": ["A", "AAAA"],
+      "rule_set": "geolocation-!cn-domain",
+      "rewrite_ttl": 0,
+      "disable_cache": true,
+      "server": "fakedns"
+    },
+    {
+      "rule_set": "geolocation-!cn-domain",
+      "server": ["cf-dns", "open-dns", "google-dns"]
+    },
+    {
+      "fallback_rule": {
+        "rule_set": "cn-ip",
+        "invert": true
+      },
+      "server": ["53-doh", "53-dot", "53-doh3", "53-quic", "some-doh"]
+    },
+    {
+      "query_type": ["A", "AAAA"],
+      "rewrite_ttl": 0,
+      "disable_cache": true,
+      "server": "fakedns"
+    }
+  ],
+  "final": ["cf-dns", "open-dns", "google-dns"]
+}

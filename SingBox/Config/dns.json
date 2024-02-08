@@ -4,8 +4,7 @@
       { "tag": "dns_block", "address": "rcode://success" },
       {
         "tag": "dns_direct",
-        "address": "h3://dns.alidns.com/dns-query",
-        "address_resolver": "dns_ip",
+        "address": "h3://223.5.5.5/dns-query",
         "strategy": "prefer_ipv6",
         "detour": "DIRECT"
       },
@@ -23,7 +22,7 @@
       },
       {
         "tag": "dns_google",
-        "address": "h3://dns.google/dns-query",
+        "address": "h3://8.8.8.8/dns-query",
         "address_resolver": "dns_ip"
       },
       {
@@ -34,29 +33,40 @@
       { "tag": "dns_fakeip", "address": "fakeip" }
     ],
     "rules": [
-      { "outbound": ["any"], "server": "dns_ip" },
+      {
+        "outbound": ["direct", "OUTBOUNDLESS"],
+        "server": ["dns_ip", "dns_direct", "dns_tx", "dns_google"]
+      },
+      { "outbound": "any", "server": "dns_ip" },
       { "clash_mode": "Global", "server": "dns_fakeip" },
-      { "clash_mode": "Direct", "server": "dns_direct" },
+      {
+        "clash_mode": "Direct",
+        "server": ["dns_direct", "dns_tx", "dns_google", "dns_ip"]
+      },
       {
         "query_type": ["A", "AAAA"],
-        "server": ["dns_direct", "dns_ip", "dns_tx"],
+        "server": "dns_direct",
+        "rule_set": [
+          "direct-0",
+          "direct-1",
+          "direct-2",
+          "direct-3",
+          "apple",
+          "netease-music",
+          "bilibili",
+          "media-cn",
+          "cn",
+          "cn-ip",
+          "cloud-cn",
+          "download"
+        ]
+      },
+      {
         "fallback_rule": {
-          "rule_set": [
-            "direct-0",
-            "direct-1",
-            "direct-2",
-            "direct-3",
-            "apple",
-            "netease-music",
-            "bilibili",
-            "media-cn",
-            "cn",
-            "cn-ip",
-            "cloud-cn",
-            "download"
-          ],
+          "rule_set": "cn-ip",
           "invert": true
-        }
+        },
+        "server": ["dns_direct", "dns_ip", "dns_tx"]
       },
       {
         "query_type": ["A", "AAAA"],
@@ -65,7 +75,7 @@
         "server": "dns_fakeip"
       }
     ],
-    "final": "dns_direct",
+    "final": ["dns_direct", "dns_ip", "dns_tx", "dns_google"],
     "strategy": "prefer_ipv6",
     "independent_cache": true,
     "reverse_mapping": true,
