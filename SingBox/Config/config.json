@@ -74,6 +74,16 @@
                 ]
             },
             {
+                "rule_set": [
+                    "ads",
+                    "adb-1",
+                    "adb-2",
+                    "ads-p",
+                    "privacy"
+                ],
+                "server": "dns_block"
+            },
+            {
                 "query_type": [
                     "A",
                     "AAAA"
