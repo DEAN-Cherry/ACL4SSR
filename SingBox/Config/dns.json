@@ -23,7 +23,7 @@
       },
       {
         "tag": "dns_google",
-        "address": "https://dns.google/dns-query",
+        "address": "h3://dns.google/dns-query",
         "address_resolver": "dns_ip"
       },
       {
@@ -39,34 +39,40 @@
       { "clash_mode": "Direct", "server": "dns_direct" },
       {
         "query_type": ["A", "AAAA"],
-        "server": ["dns_direct"],
-        "rule_set": [
-          "direct-0",
-          "direct-1",
-          "direct-2",
-          "direct-3",
-          "apple",
-          "netease-music",
-          "bilibili",
-          "media-cn",
-          "cn",
-          "cn-ip",
-          "cloud-cn",
-          "download"
-        ]
+        "server": ["dns_direct", "dns_ip", "dns_tx"],
+        "fallback_rule": {
+          "rule_set": [
+            "direct-0",
+            "direct-1",
+            "direct-2",
+            "direct-3",
+            "apple",
+            "netease-music",
+            "bilibili",
+            "media-cn",
+            "cn",
+            "cn-ip",
+            "cloud-cn",
+            "download"
+          ],
+          "invert": true
+        }
       },
       {
         "query_type": ["A", "AAAA"],
+        "rewrite_ttl": 0,
+        "disable_cache": true,
         "server": "dns_fakeip"
       }
     ],
     "final": "dns_direct",
+    "strategy": "prefer_ipv6",
     "independent_cache": true,
     "reverse_mapping": true,
     "fakeip": {
       "enabled": true,
-      "inet6_range": "fc00::/18",
-      "inet4_range": "198.18.0.0/15"
+      "inet6_range": "fc00::/16",
+      "inet4_range": "198.18.0.0/16"
     }
   }
 }
