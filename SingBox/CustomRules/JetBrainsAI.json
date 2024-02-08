@@ -1,15 +1,19 @@
 {
-  "version": 1,
-  "rules": [
-    {
-      "domain_keyword": [
-        "grazie.aws.intellij.net",
-        "grazie.ai"
-      ],
-      "domain_suffix": [
-        "api.app.prod.grazie.aws.intellij.net",
-        "grazie.ai"
-      ]
-    }
-  ]
+    "rules": [
+        {
+            "domain": [
+                "api.app.prod.grazie.aws.intellij.net",
+                "grazie.ai"
+            ],
+            "domain_keyword": [
+                "grazie.aws.intellij.net",
+                "grazie.ai"
+            ],
+            "domain_suffix": [
+                ".api.app.prod.grazie.aws.intellij.net",
+                ".grazie.ai"
+            ]
+        }
+    ],
+    "version": 1
 }

@@ -1,13 +1,19 @@
 {
-  "version": 1,
-  "rules": [
-    {
-      "domain_suffix": [
-        "jellyfin.nieb.top",
-        "jf.nieb.top",
-        "emby.pilipiliultra.top",
-        "emby.pilipiliultra.com"
-      ]
-    }
-  ]
+    "rules": [
+        {
+            "domain": [
+                "jellyfin.nieb.top",
+                "jf.nieb.top",
+                "emby.pilipiliultra.top",
+                "emby.pilipiliultra.com"
+            ],
+            "domain_suffix": [
+                ".jellyfin.nieb.top",
+                ".jf.nieb.top",
+                ".emby.pilipiliultra.top",
+                ".emby.pilipiliultra.com"
+            ]
+        }
+    ],
+    "version": 1
 }
