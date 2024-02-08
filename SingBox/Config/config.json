@@ -74,6 +74,16 @@
                 ]
             },
             {
+                "rule_set": [
+                    "ads",
+                    "adb-1",
+                    "adb-2",
+                    "ads-p",
+                    "privacy"
+                ],
+                "server": "dns_block"
+            },
+            {
                 "query_type": [
                     "A",
                     "AAAA"
@@ -486,9 +496,10 @@
                 "香港|广港|HK|hk|Hong Kong|HongKong|hongkong"
             ],
             "excludes": "游戏",
-            "url": "http://www.apple.com/library/test/success.html",
+            "url": "https://www.gstatic.com/generate_204",
             "interval": "5m",
-            "tolerance": 50
+            "tolerance": 30,
+            "interrupt_exist_connections": true
         },
         {
             "type": "urltest",
@@ -500,9 +511,9 @@
             "includes": [
                 "台|新北|彰化|TW|Taiwan"
             ],
-            "url": "http://www.apple.com/library/test/success.html",
+            "url": "https://www.gstatic.com/generate_204",
             "interval": "5m",
-            "tolerance": 50
+            "tolerance": 30
         },
         {
             "type": "urltest",
@@ -514,7 +525,7 @@
             "includes": [
                 "日本|川日|东京|大阪|泉日|埼玉|沪日|深日|[^-]日|JP|Japan"
             ],
-            "url": "http://www.apple.com/library/test/success.html",
+            "url": "https://www.gstatic.com/generate_204",
             "interval": "5m",
             "tolerance": 50
         },
@@ -530,7 +541,7 @@
             ],
             "url": "http://www.apple.com/library/test/success.html",
             "interval": "5m",
-            "tolerance": 150
+            "tolerance": 100
         },
         {
             "type": "urltest",
@@ -544,7 +555,7 @@
             ],
             "url": "http://www.apple.com/library/test/success.html",
             "interval": "5m",
-            "tolerance": 50
+            "tolerance": 150
         },
         {
             "type": "urltest",
@@ -556,9 +567,10 @@
             "includes": [
                 "新加坡|坡|狮城|SG|Singapore"
             ],
-            "url": "http://www.apple.com/library/test/success.html",
-            "interval": "5m",
-            "tolerance": 50
+            "url": "https://www.gstatic.com/generate_204",
+            "interval": "3m",
+            "tolerance": 30,
+            "interrupt_exist_connections": true
         },
         {
             "type": "urltest",

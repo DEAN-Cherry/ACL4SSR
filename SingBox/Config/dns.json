@@ -44,6 +44,10 @@
         "server": ["dns_direct", "dns_tx", "dns_google", "dns_ip"]
       },
       {
+        "rule_set": ["ads", "adb-1", "adb-2", "ads-p", "privacy"],
+        "server": "dns_block"
+      },
+      {
         "query_type": ["A", "AAAA"],
         "server": "dns_direct",
         "rule_set": [
