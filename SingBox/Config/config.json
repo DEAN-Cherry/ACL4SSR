@@ -116,6 +116,19 @@
                 ]
             },
             {
+                "rule_set": [
+                    "google-fcm",
+                    "microsoft-bing",
+                    "microsoft-cloud",
+                    "microsoft-service",
+                    "openai",
+                    "jbai",
+                    "youtube",
+                    "netflix",
+                    "baha",
+                    "media-proxy",
+                    "proxy"
+                ],
                 "query_type": [
                     "A",
                     "AAAA"
