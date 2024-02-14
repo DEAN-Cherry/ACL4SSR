@@ -26,12 +26,13 @@
             {
                 "tag": "dns_proxy",
                 "address": "https://cloudflare-dns.com/dns-query",
-                "address_resolver": "dns_ip"
+                "address_resolver": "dns_ip",
+                "strategy": "prefer_ipv4"
             },
             {
                 "tag": "dns_google",
                 "address": "h3://8.8.8.8/dns-query",
-                "address_resolver": "dns_ip"
+                "strategy": "prefer_ipv4"
             },
             {
                 "tag": "dns_ip",
@@ -52,8 +53,7 @@
                 "server": [
                     "dns_ip",
                     "dns_direct",
-                    "dns_tx",
-                    "dns_google"
+                    "dns_tx"
                 ]
             },
             {
@@ -82,6 +82,47 @@
                     "privacy"
                 ],
                 "server": "dns_block"
+            },
+            {
+                "rule_set": [
+                    "google-fcm",
+                    "microsoft-bing",
+                    "microsoft-cloud",
+                    "microsoft-service",
+                    "openai",
+                    "jbai",
+                    "youtube",
+                    "netflix",
+                    "baha",
+                    "media-proxy",
+                    "proxy"
+                ],
+                "query_type": [
+                    "A",
+                    "AAAA"
+                ],
+                "rewrite_ttl": 0,
+                "disable_cache": true,
+                "server": "dns_fakeip"
+            },
+            {
+                "rule_set": [
+                    "google-fcm",
+                    "microsoft-bing",
+                    "microsoft-cloud",
+                    "microsoft-service",
+                    "openai",
+                    "jbai",
+                    "youtube",
+                    "netflix",
+                    "baha",
+                    "media-proxy",
+                    "proxy"
+                ],
+                "server": [
+                    "dns_proxy",
+                    "dns_google"
+                ]
             },
             {
                 "query_type": [
@@ -116,19 +157,6 @@
                 ]
             },
             {
-                "rule_set": [
-                    "google-fcm",
-                    "microsoft-bing",
-                    "microsoft-cloud",
-                    "microsoft-service",
-                    "openai",
-                    "jbai",
-                    "youtube",
-                    "netflix",
-                    "baha",
-                    "media-proxy",
-                    "proxy"
-                ],
                 "query_type": [
                     "A",
                     "AAAA"
@@ -139,12 +167,9 @@
             }
         ],
         "final": [
-            "dns_direct",
-            "dns_ip",
-            "dns_tx",
+            "dns_proxy",
             "dns_google"
         ],
-        "strategy": "prefer_ipv6",
         "independent_cache": true,
         "reverse_mapping": true,
         "fakeip": {

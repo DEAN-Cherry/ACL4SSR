@@ -18,12 +18,13 @@
       {
         "tag": "dns_proxy",
         "address": "https://cloudflare-dns.com/dns-query",
-        "address_resolver": "dns_ip"
+        "address_resolver": "dns_ip",
+        "strategy": "prefer_ipv4"
       },
       {
         "tag": "dns_google",
         "address": "h3://8.8.8.8/dns-query",
-        "address_resolver": "dns_ip"
+        "strategy": "prefer_ipv4"
       },
       {
         "tag": "dns_ip",
@@ -35,7 +36,7 @@
     "rules": [
       {
         "outbound": ["direct", "OUTBOUNDLESS"],
-        "server": ["dns_ip", "dns_direct", "dns_tx", "dns_google"]
+        "server": ["dns_ip", "dns_direct", "dns_tx"]
       },
       { "outbound": "any", "server": "dns_ip" },
       { "clash_mode": "Global", "server": "dns_fakeip" },
@@ -47,6 +48,43 @@
         "rule_set": ["ads", "adb-1", "adb-2", "ads-p", "privacy"],
         "server": "dns_block"
       },
+
+      {
+        "rule_set": [
+          "google-fcm",
+          "microsoft-bing",
+          "microsoft-cloud",
+          "microsoft-service",
+          "openai",
+          "jbai",
+          "youtube",
+          "netflix",
+          "baha",
+          "media-proxy",
+          "proxy"
+        ],
+        "query_type": ["A", "AAAA"],
+        "rewrite_ttl": 0,
+        "disable_cache": true,
+        "server": "dns_fakeip"
+      },
+      {
+        "rule_set": [
+          "google-fcm",
+          "microsoft-bing",
+          "microsoft-cloud",
+          "microsoft-service",
+          "openai",
+          "jbai",
+          "youtube",
+          "netflix",
+          "baha",
+          "media-proxy",
+          "proxy"
+        ],
+        "server": ["dns_proxy", "dns_google"]
+      },
+
       {
         "query_type": ["A", "AAAA"],
         "server": "dns_direct",
@@ -73,27 +111,13 @@
         "server": ["dns_direct", "dns_ip", "dns_tx"]
       },
       {
-        "rule_set":[
-          "google-fcm",
-          "microsoft-bing",
-          "microsoft-cloud",
-          "microsoft-service",
-          "openai",
-          "jbai",
-          "youtube",
-          "netflix",
-          "baha",
-          "media-proxy",
-          "proxy"
-        ],
         "query_type": ["A", "AAAA"],
         "rewrite_ttl": 0,
         "disable_cache": true,
         "server": "dns_fakeip"
       }
     ],
-    "final": ["dns_direct", "dns_ip", "dns_tx", "dns_google"],
-    "strategy": "prefer_ipv6",
+    "final": ["dns_proxy", "dns_google"],
     "independent_cache": true,
     "reverse_mapping": true,
     "fakeip": {
