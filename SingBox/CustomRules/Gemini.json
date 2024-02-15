@@ -1,0 +1,10 @@
+{
+  "rules": [
+    {
+      "domain": ["gemini.google.com"],
+      "domain_keyword": ["gemini"],
+      "domain_suffix": [".gemini.google.com"]
+    }
+  ],
+  "version": 1
+}

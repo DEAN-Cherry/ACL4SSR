@@ -112,6 +112,7 @@
                     "microsoft-cloud",
                     "microsoft-service",
                     "openai",
+                    "gemini",
                     "jbai",
                     "youtube",
                     "netflix",
@@ -244,6 +245,22 @@
         {
             "type": "selector",
             "tag": "💬 OpenAi",
+            "outbounds": [
+                "🚀 节点选择",
+                "♻️ 自动选择",
+                "🇸🇬 狮城节点",
+                "🇭🇰 香港节点",
+                "🇹🇼 台湾节点",
+                "🇯🇵 日本节点",
+                "🇺🇲 美国节点",
+                "🇰🇷 韩国节点",
+                "🚀 手动切换",
+                "DIRECT"
+            ]
+        },
+        {
+            "type": "selector",
+            "tag": "💬 Gemini",
             "outbounds": [
                 "🚀 节点选择",
                 "♻️ 自动选择",
@@ -771,6 +788,10 @@
                 "outbound": "💬 OpenAi"
             },
             {
+                "rule_set": "gemini",
+                "outbound": "💬 Gemini"
+            },
+            {
                 "rule_set": "jbai",
                 "outbound": "👾 JetBrainsAI"
             },
@@ -966,6 +987,13 @@
                 "type": "remote",
                 "format": "binary",
                 "url": "https://cdn.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@sing/bm7/OpenAI.srs",
+                "download_detour": "DIRECT"
+            },
+            {
+                "tag": "gemini",
+                "type": "remote",
+                "format": "binary",
+                "url": "https://cdn.jsdelivr.net/gh/DEAN-Cherry/ACL4SSR@dev/SingBox/CustomRules/Gemini.srs",
                 "download_detour": "DIRECT"
             },
             {

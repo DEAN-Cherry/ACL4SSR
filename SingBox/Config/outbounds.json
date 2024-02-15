@@ -20,7 +20,7 @@
       "type": "selector",
       "tag": "🚀 手动切换",
       "providers": ["🛫 FastLink", "🛫 NiceCloud"],
-      "excludes":"官网|客户端"
+      "excludes": "官网|客户端"
     },
     {
       "type": "urltest",
@@ -55,6 +55,22 @@
     {
       "type": "selector",
       "tag": "💬 OpenAi",
+      "outbounds": [
+        "🚀 节点选择",
+        "♻️ 自动选择",
+        "🇸🇬 狮城节点",
+        "🇭🇰 香港节点",
+        "🇹🇼 台湾节点",
+        "🇯🇵 日本节点",
+        "🇺🇲 美国节点",
+        "🇰🇷 韩国节点",
+        "🚀 手动切换",
+        "DIRECT"
+      ]
+    },
+    {
+      "type": "selector",
+      "tag": "💬 Gemini",
       "outbounds": [
         "🚀 节点选择",
         "♻️ 自动选择",
@@ -313,7 +329,7 @@
       "url": "https://www.gstatic.com/generate_204",
       "interval": "5m",
       "tolerance": 30,
-      "interrupt_exist_connections":true
+      "interrupt_exist_connections": true
     },
     {
       "type": "urltest",
@@ -361,7 +377,7 @@
       "url": "https://www.gstatic.com/generate_204",
       "interval": "3m",
       "tolerance": 30,
-      "interrupt_exist_connections":true
+      "interrupt_exist_connections": true
     },
     {
       "type": "urltest",
