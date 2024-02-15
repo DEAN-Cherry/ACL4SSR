@@ -91,7 +91,7 @@
         "rule_set": [
           "direct-0",
           "direct-1",
-          "direct-2",
+          "google-cn",
           "direct-3",
           "apple",
           "netease-music",

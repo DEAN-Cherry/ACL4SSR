@@ -12,7 +12,6 @@
       { "rule_set": "privacy", "outbound": "🛡️ 隐私防护" },
       { "rule_set": "ads-p", "outbound": "🍃 应用净化" },
       { "rule_set": "google-fcm", "outbound": "📢 谷歌FCM" },
-      { "rule_set": "direct-2", "outbound": "🎯 全球直连" },
       { "rule_set": "direct-3", "outbound": "🎯 全球直连" },
       { "rule_set": "microsoft-bing", "outbound": "Ⓜ️ 微软Bing" },
       { "rule_set": "microsoft-cloud", "outbound": "Ⓜ️ 微软云盘" },
@@ -36,6 +35,7 @@
       { "rule_set": "media-proxy", "outbound": "🌍 国外媒体" },
       { "rule_set": "proxy", "outbound": "🚀 节点选择" },
       { "rule_set": "server", "outbound": "☁️ CloudFlare Server" },
+      { "rule_set": "google-cn", "outbound": "🎯 全球直连" },
       { "rule_set": "cn", "outbound": "🎯 全球直连" },
       { "rule_set": "cn-ip", "outbound": "🎯 全球直连" },
       { "rule_set": "cloud-cn", "outbound": "🎯 全球直连" },
@@ -99,7 +99,7 @@
         "download_detour": "DIRECT"
       },
       {
-        "tag": "direct-2",
+        "tag": "google-cn",
         "type": "remote",
         "format": "binary",
         "url": "https://cdn.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@sing/geo/geosite/google-cn.srs",

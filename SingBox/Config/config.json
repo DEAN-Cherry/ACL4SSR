@@ -133,7 +133,7 @@
                 "rule_set": [
                     "direct-0",
                     "direct-1",
-                    "direct-2",
+                    "google-cn",
                     "direct-3",
                     "apple",
                     "netease-music",
@@ -743,10 +743,6 @@
                 "outbound": "📢 谷歌FCM"
             },
             {
-                "rule_set": "direct-2",
-                "outbound": "🎯 全球直连"
-            },
-            {
                 "rule_set": "direct-3",
                 "outbound": "🎯 全球直连"
             },
@@ -839,6 +835,10 @@
                 "outbound": "☁️ CloudFlare Server"
             },
             {
+                "rule_set": "google-cn",
+                "outbound": "🎯 全球直连"
+            },
+            {
                 "rule_set": "cn",
                 "outbound": "🎯 全球直连"
             },
@@ -913,7 +913,7 @@
                 "download_detour": "DIRECT"
             },
             {
-                "tag": "direct-2",
+                "tag": "google-cn",
                 "type": "remote",
                 "format": "binary",
                 "url": "https://cdn.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@sing/geo/geosite/google-cn.srs",
