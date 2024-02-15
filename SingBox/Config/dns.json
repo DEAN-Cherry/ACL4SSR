@@ -71,6 +71,7 @@
       {
         "rule_set": [
           "google-fcm",
+          "google",
           "microsoft-bing",
           "microsoft-cloud",
           "microsoft-service",

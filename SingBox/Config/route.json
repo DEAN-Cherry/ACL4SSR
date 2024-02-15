@@ -16,10 +16,11 @@
       { "rule_set": "microsoft-bing", "outbound": "Ⓜ️ 微软Bing" },
       { "rule_set": "microsoft-cloud", "outbound": "Ⓜ️ 微软云盘" },
       { "rule_set": "microsoft-service", "outbound": "Ⓜ️ 微软服务" },
+      { "rule_set": "google", "outbound": "🔴 Google" },
       { "rule_set": "apple", "outbound": "🍎 苹果服务" },
       { "rule_set": "telegram", "outbound": "📲 电报消息" },
       { "rule_set": "openai", "outbound": "💬 OpenAi" },
-      { "rule_set": "gemini", "outbound": "💬 Gemini" },
+      { "rule_set": "gemini", "outbound": "🫧 Gemini" },
       { "rule_set": "jbai", "outbound": "👾 JetBrainsAI" },
       { "rule_set": "netease-music", "outbound": "🎶 网易音乐" },
       { "rule_set": "games-1", "outbound": "🎮 游戏平台" },
@@ -104,6 +105,13 @@
         "type": "remote",
         "format": "binary",
         "url": "https://cdn.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@sing/geo/geosite/google-cn.srs",
+        "download_detour": "DIRECT"
+      },
+      {
+        "tag": "google",
+        "type": "remote",
+        "format": "binary",
+        "url": "https://cdn.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@sing/bm7/Google.srs",
         "download_detour": "DIRECT"
       },
       {
