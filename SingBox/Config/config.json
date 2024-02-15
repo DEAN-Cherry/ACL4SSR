@@ -101,7 +101,7 @@
                     "A",
                     "AAAA"
                 ],
-                "rewrite_ttl": 0,
+                "rewrite_ttl": 1,
                 "disable_cache": true,
                 "server": "dns_fakeip"
             },
@@ -163,7 +163,7 @@
                     "A",
                     "AAAA"
                 ],
-                "rewrite_ttl": 0,
+                "rewrite_ttl": 1,
                 "disable_cache": true,
                 "server": "dns_fakeip"
             }
