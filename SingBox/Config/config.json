@@ -261,7 +261,7 @@
         },
         {
             "type": "selector",
-            "tag": "💬 Gemini",
+            "tag": "🫧 Gemini",
             "outbounds": [
                 "🚀 节点选择",
                 "♻️ 自动选择",
@@ -793,18 +793,6 @@
                 "outbound": "Ⓜ️ 微软服务"
             },
             {
-                "rule_set": "google",
-                "outbound": "🔴 Google"
-            },
-            {
-                "rule_set": "apple",
-                "outbound": "🍎 苹果服务"
-            },
-            {
-                "rule_set": "telegram",
-                "outbound": "📲 电报消息"
-            },
-            {
                 "rule_set": "openai",
                 "outbound": "💬 OpenAi"
             },
@@ -815,6 +803,18 @@
             {
                 "rule_set": "jbai",
                 "outbound": "👾 JetBrainsAI"
+            },
+            {
+                "rule_set": "google",
+                "outbound": "🔴 Google"
+            },
+            {
+                "rule_set": "apple",
+                "outbound": "🍎 苹果服务"
+            },
+            {
+                "rule_set": "telegram",
+                "outbound": "📲 电报消息"
             },
             {
                 "rule_set": "netease-music",
