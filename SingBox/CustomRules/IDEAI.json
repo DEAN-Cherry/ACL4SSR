@@ -4,7 +4,8 @@
             "domain": [
                 "api.app.prod.grazie.aws.intellij.net",
                 "grazie.ai",
-                "api.githubcopilot.com"
+                "api.githubcopilot.com",
+                "copilot-proxy.githubusercontent.com"
             ],
             "domain_keyword": [
                 "grazie.aws.intellij.net",
@@ -15,6 +16,9 @@
                 ".api.app.prod.grazie.aws.intellij.net",
                 ".grazie.ai",
                 ".api.githubcopilot.com"
+            ],
+            "ip_cidr":[
+                "20.80.64.28"
             ]
         }
     ],
