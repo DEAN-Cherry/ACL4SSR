@@ -1,0 +1,22 @@
+{
+    "rules": [
+        {
+            "domain": [
+                "api.app.prod.grazie.aws.intellij.net",
+                "grazie.ai",
+                "api.githubcopilot.com"
+            ],
+            "domain_keyword": [
+                "grazie.aws.intellij.net",
+                "grazie.ai",
+                "copilot"
+            ],
+            "domain_suffix": [
+                ".api.app.prod.grazie.aws.intellij.net",
+                ".grazie.ai",
+                ".api.githubcopilot.com"
+            ]
+        }
+    ],
+    "version": 1
+}

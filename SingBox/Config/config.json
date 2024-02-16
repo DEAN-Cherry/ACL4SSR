@@ -277,15 +277,19 @@
         },
         {
             "type": "selector",
-            "tag": "👾 JetBrainsAI",
+            "tag": "👾 Copilot&JetBrainsAI",
             "outbounds": [
                 "🚀 节点选择",
                 "♻️ 自动选择",
+                "🚀 手动切换",
                 "🇭🇰 香港节点",
                 "🇹🇼 台湾节点",
                 "🇯🇵 日本节点",
+                "🇰🇷 韩国节点",
                 "🇸🇬 狮城节点",
                 "🇺🇲 美国节点",
+                "🇪🇺 欧洲节点",
+                "🕹️ 游戏节点",
                 "DIRECT"
             ]
         },
@@ -801,8 +805,8 @@
                 "outbound": "🫧 Gemini"
             },
             {
-                "rule_set": "jbai",
-                "outbound": "👾 JetBrainsAI"
+                "rule_set": "conjbai",
+                "outbound": "👾 Copilot&JetBrainsAI"
             },
             {
                 "rule_set": "google",
@@ -1025,10 +1029,10 @@
                 "download_detour": "DIRECT"
             },
             {
-                "tag": "jbai",
+                "tag": "conjbai",
                 "type": "remote",
                 "format": "binary",
-                "url": "https://cdn.jsdelivr.net/gh/DEAN-Cherry/ACL4SSR@dev/SingBox/CustomRules/JetBrainsAI.srs",
+                "url": "https://cdn.jsdelivr.net/gh/DEAN-Cherry/ACL4SSR@dev/SingBox/CustomRules/IDEAI.srs",
                 "download_detour": "DIRECT"
             },
             {
