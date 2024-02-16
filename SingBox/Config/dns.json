@@ -29,6 +29,7 @@
       {
         "tag": "dns_ip",
         "address": "https://223.5.5.5/dns-query",
+        "strategy": "prefer_ipv6",
         "detour": "DIRECT"
       },
       { "tag": "dns_fakeip", "address": "fakeip" }
@@ -64,7 +65,6 @@
           "proxy"
         ],
         "query_type": ["A", "AAAA"],
-        "rewrite_ttl": 1,
         "disable_cache": true,
         "server": "dns_fakeip"
       },
@@ -114,7 +114,6 @@
       },
       {
         "query_type": ["A", "AAAA"],
-        "rewrite_ttl": 1,
         "disable_cache": true,
         "server": "dns_fakeip"
       }
