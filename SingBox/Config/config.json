@@ -35,9 +35,12 @@
                 "strategy": "prefer_ipv4"
             },
             {
+                "tag": "local",
+                "address": "local"
+            },
+            {
                 "tag": "dns_ip",
                 "address": "https://223.5.5.5/dns-query",
-                "strategy": "prefer_ipv6",
                 "detour": "DIRECT"
             },
             {
@@ -75,6 +78,12 @@
                 ]
             },
             {
+                "domain": [
+                    "internal.jf.nieb.top"
+                ],
+                "server": "local"
+            },
+            {
                 "rule_set": [
                     "ads",
                     "adb-1",
@@ -95,6 +104,8 @@
                     "youtube",
                     "netflix",
                     "baha",
+                    "bilibili-hmt",
+                    "server",
                     "media-proxy",
                     "proxy"
                 ],
@@ -102,6 +113,7 @@
                     "A",
                     "AAAA"
                 ],
+                "rewrite_ttl": 1,
                 "disable_cache": true,
                 "server": "dns_fakeip"
             },
@@ -163,6 +175,7 @@
                     "A",
                     "AAAA"
                 ],
+                "rewrite_ttl": 1,
                 "disable_cache": true,
                 "server": "dns_fakeip"
             }
