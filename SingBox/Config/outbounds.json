@@ -340,10 +340,27 @@
         "🚀 手动切换"
       ]
     },
+
+    {
+      "type": "selector",
+      "tag": "🇭🇰 香港节点",
+      "outbounds": ["🇭🇰 香港Pool1", "🇭🇰 香港Pool2"]
+    },
     {
       "type": "urltest",
-      "tag": "🇭🇰 香港节点",
+      "tag": "🇭🇰 香港Pool1",
       "providers": ["🛫 FastLink", "🛫 NiceCloud"],
+      "includes": ["香港|广港|HK|hk|Hong Kong|HongKong|hongkong"],
+      "excludes": "游戏",
+      "url": "https://www.gstatic.com/generate_204",
+      "interval": "5m",
+      "tolerance": 50,
+      "interrupt_exist_connections": true
+    },
+    {
+      "type": "urltest",
+      "tag": "🇭🇰 香港Pool2",
+      "providers": ["🛫 NiceCloud"],
       "includes": ["香港|广港|HK|hk|Hong Kong|HongKong|hongkong"],
       "excludes": "游戏",
       "url": "https://www.gstatic.com/generate_204",
@@ -433,6 +450,7 @@
       "interval": "5m",
       "tolerance": 50
     },
+
     {
       "type": "selector",
       "tag": "GLOBAL",
