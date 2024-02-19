@@ -86,6 +86,7 @@
           "microsoft-service",
           "openai",
           "gemini",
+          "conjbai",
           "youtube",
           "netflix",
           "server",
@@ -130,6 +131,7 @@
     ],
     "final": ["dns_proxy", "dns_google"],
     "independent_cache": true,
+    "reverse_mapping": true,
     "fakeip": {
       "enabled": true,
       "inet6_range": "fc00::/16",
