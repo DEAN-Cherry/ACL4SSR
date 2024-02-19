@@ -86,7 +86,7 @@
     },
     {
       "type": "selector",
-      "tag": "👾 Copilot&JetBrainsAI",
+      "tag": "👾 Copilot&JBAI",
       "outbounds": [
         "🚀 节点选择",
         "♻️ 自动选择",
@@ -348,7 +348,7 @@
       "excludes": "游戏",
       "url": "https://www.gstatic.com/generate_204",
       "interval": "5m",
-      "tolerance": 30,
+      "tolerance": 50,
       "interrupt_exist_connections": true
     },
     {
@@ -358,7 +358,7 @@
       "includes": ["台|新北|彰化|TW|Taiwan"],
       "url": "https://www.gstatic.com/generate_204",
       "interval": "5m",
-      "tolerance": 30
+      "tolerance": 50
     },
     {
       "type": "urltest",
@@ -385,7 +385,6 @@
       "tag": "🇪🇺 欧洲节点",
       "providers": ["🛫 FastLink", "🛫 NiceCloud"],
       "includes": ["欧洲|德国|法国|英国|土耳其|加拿大|阿根廷|爱沙尼亚"],
-      "url": "http://www.apple.com/library/test/success.html",
       "interval": "5m",
       "tolerance": 150
     },
@@ -395,8 +394,8 @@
       "providers": ["🛫 FastLink", "🛫 NiceCloud"],
       "includes": ["新加坡|坡|狮城|SG|Singapore"],
       "url": "https://www.gstatic.com/generate_204",
-      "interval": "3m",
-      "tolerance": 30,
+      "interval": "5m",
+      "tolerance": 50,
       "interrupt_exist_connections": true
     },
     {
@@ -413,7 +412,6 @@
       "tag": "🕹️ 游戏节点",
       "providers": ["🛫 FastLink"],
       "includes": ["游戏|Game|Gaming|Gamer|玩家"],
-      "url": "http://www.apple.com/library/test/success.html",
       "interval": "5m",
       "tolerance": 50
     },
@@ -423,7 +421,6 @@
       "providers": ["🛫 FastLink", "🛫 NiceCloud"],
       "includes": ["网易|音乐|解锁|Music|NetEase"],
       "excludes": "游戏",
-      "url": "http://www.apple.com/library/test/success.html",
       "interval": "5m",
       "tolerance": 50
     },
@@ -433,7 +430,6 @@
       "providers": ["🛫 FastLink", "🛫 NiceCloud"],
       "includes": ["NF|奈飞|解锁|Netflix|NETFLIX|Media"],
       "excludes": "音乐",
-      "url": "http://www.apple.com/library/test/success.html",
       "interval": "5m",
       "tolerance": 50
     },

@@ -18,7 +18,7 @@
       { "rule_set": "microsoft-service", "outbound": "Ⓜ️ 微软服务" },
       { "rule_set": "openai", "outbound": "💬 OpenAi" },
       { "rule_set": "gemini", "outbound": "🫧 Gemini" },
-      { "rule_set": "conjbai", "outbound": "👾 Copilot&JetBrainsAI" },
+      { "rule_set": "conjbai", "outbound": "👾 Copilot&JBAI" },
       { "rule_set": "google", "outbound": "🔴 Google" },
       { "rule_set": "apple", "outbound": "🍎 苹果服务" },
       { "rule_set": "telegram", "outbound": "📲 电报消息" },

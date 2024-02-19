@@ -100,12 +100,9 @@
                     "microsoft-cloud",
                     "microsoft-service",
                     "openai",
-                    "conjbai",
                     "youtube",
                     "netflix",
                     "baha",
-                    "bilibili-hmt",
-                    "server",
                     "media-proxy",
                     "proxy"
                 ],
@@ -129,6 +126,7 @@
                     "conjbai",
                     "youtube",
                     "netflix",
+                    "server",
                     "baha",
                     "media-proxy",
                     "proxy"
@@ -143,7 +141,10 @@
                     "A",
                     "AAAA"
                 ],
-                "server": "dns_direct",
+                "server": [
+                    "dns_direct",
+                    "dns_tx"
+                ],
                 "rule_set": [
                     "direct-0",
                     "direct-1",
@@ -289,7 +290,7 @@
         },
         {
             "type": "selector",
-            "tag": "👾 Copilot&JetBrainsAI",
+            "tag": "👾 Copilot&JBAI",
             "outbounds": [
                 "🚀 节点选择",
                 "♻️ 自动选择",
@@ -586,7 +587,7 @@
             "excludes": "游戏",
             "url": "https://www.gstatic.com/generate_204",
             "interval": "5m",
-            "tolerance": 30,
+            "tolerance": 50,
             "interrupt_exist_connections": true
         },
         {
@@ -601,7 +602,7 @@
             ],
             "url": "https://www.gstatic.com/generate_204",
             "interval": "5m",
-            "tolerance": 30
+            "tolerance": 50
         },
         {
             "type": "urltest",
@@ -641,7 +642,6 @@
             "includes": [
                 "欧洲|德国|法国|英国|土耳其|加拿大|阿根廷|爱沙尼亚"
             ],
-            "url": "http://www.apple.com/library/test/success.html",
             "interval": "5m",
             "tolerance": 150
         },
@@ -656,8 +656,8 @@
                 "新加坡|坡|狮城|SG|Singapore"
             ],
             "url": "https://www.gstatic.com/generate_204",
-            "interval": "3m",
-            "tolerance": 30,
+            "interval": "5m",
+            "tolerance": 50,
             "interrupt_exist_connections": true
         },
         {
@@ -683,7 +683,6 @@
             "includes": [
                 "游戏|Game|Gaming|Gamer|玩家"
             ],
-            "url": "http://www.apple.com/library/test/success.html",
             "interval": "5m",
             "tolerance": 50
         },
@@ -698,7 +697,6 @@
                 "网易|音乐|解锁|Music|NetEase"
             ],
             "excludes": "游戏",
-            "url": "http://www.apple.com/library/test/success.html",
             "interval": "5m",
             "tolerance": 50
         },
@@ -713,7 +711,6 @@
                 "NF|奈飞|解锁|Netflix|NETFLIX|Media"
             ],
             "excludes": "音乐",
-            "url": "http://www.apple.com/library/test/success.html",
             "interval": "5m",
             "tolerance": 50
         },
@@ -818,7 +815,7 @@
             },
             {
                 "rule_set": "conjbai",
-                "outbound": "👾 Copilot&JetBrainsAI"
+                "outbound": "👾 Copilot&JBAI"
             },
             {
                 "rule_set": "google",

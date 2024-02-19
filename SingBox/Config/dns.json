@@ -64,12 +64,9 @@
           "microsoft-cloud",
           "microsoft-service",
           "openai",
-          "conjbai",
           "youtube",
           "netflix",
           "baha",
-          "bilibili-hmt",
-          "server",
           "media-proxy",
           "proxy"
         ],
@@ -90,6 +87,7 @@
           "conjbai",
           "youtube",
           "netflix",
+          "server",
           "baha",
           "media-proxy",
           "proxy"
@@ -99,7 +97,7 @@
 
       {
         "query_type": ["A", "AAAA"],
-        "server": "dns_direct",
+        "server": ["dns_direct", "dns_tx"],
         "rule_set": [
           "direct-0",
           "direct-1",
