@@ -132,6 +132,7 @@
     "final": ["dns_proxy", "dns_google"],
     "independent_cache": true,
     "reverse_mapping": true,
+    "strategy":"prefer_ipv6",
     "fakeip": {
       "enabled": true,
       "inet6_range": "fc00::/16",
