@@ -46,7 +46,8 @@
       { "clash_mode": "Global", "server": "dns_fakeip" },
       {
         "clash_mode": "Direct",
-        "server": ["dns_direct", "dns_tx", "dns_google", "dns_ip"]
+        "server": ["dns_direct", "dns_tx", "dns_google", "dns_ip"],
+        "outbound": "direct"
       },
       {
         "domain": ["internal.jf.nieb.top"],
@@ -66,6 +67,7 @@
           "openai",
           "gemini",
           "conjbai",
+          "server",
           "youtube",
           "netflix",
           "baha",
@@ -99,7 +101,7 @@
 
       {
         "query_type": ["A", "AAAA"],
-        "server": ["dns_direct", "dns_tx"],
+        "server": ["dns_direct", "dns_tx", "dns_ip"],
         "rule_set": [
           "direct-0",
           "direct-1",
@@ -134,8 +136,8 @@
     "reverse_mapping": true,
     "fakeip": {
       "enabled": true,
-      "inet6_range": "fc00::/16",
-      "inet4_range": "198.18.0.0/16"
+      "inet6_range": "fc00::/15",
+      "inet4_range": "198.18.0.0/15"
     }
   }
 }

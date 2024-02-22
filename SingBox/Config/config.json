@@ -75,7 +75,8 @@
                     "dns_tx",
                     "dns_google",
                     "dns_ip"
-                ]
+                ],
+                "outbound": "direct"
             },
             {
                 "domain": [
@@ -102,6 +103,7 @@
                     "openai",
                     "gemini",
                     "conjbai",
+                    "server",
                     "youtube",
                     "netflix",
                     "baha",
@@ -145,7 +147,8 @@
                 ],
                 "server": [
                     "dns_direct",
-                    "dns_tx"
+                    "dns_tx",
+                    "dns_ip"
                 ],
                 "rule_set": [
                     "direct-0",
@@ -191,8 +194,8 @@
         "reverse_mapping": true,
         "fakeip": {
             "enabled": true,
-            "inet6_range": "fc00::/16",
-            "inet4_range": "198.18.0.0/16"
+            "inet6_range": "fc00::/15",
+            "inet4_range": "198.18.0.0/15"
         }
     },
     "inbounds": [],
@@ -218,7 +221,8 @@
             "tag": "🚀 手动切换",
             "providers": [
                 "🛫 FastLink",
-                "🛫 NiceCloud"
+                "🛫 NiceCloud",
+                "🛫 Kele"
             ],
             "excludes": "官网|客户端"
         },
@@ -227,7 +231,8 @@
             "tag": "♻️ 自动选择",
             "providers": [
                 "🛫 FastLink",
-                "🛫 NiceCloud"
+                "🛫 NiceCloud",
+                "🛫 Kele"
             ],
             "excludes": "游戏|官网|客户端|福利",
             "url": "http://www.apple.com/library/test/success.html",
@@ -239,7 +244,8 @@
             "tag": "🔯 故障转移",
             "providers": [
                 "🛫 FastLink",
-                "🛫 NiceCloud"
+                "🛫 NiceCloud",
+                "🛫 Kele"
             ]
         },
         {
@@ -581,7 +587,8 @@
             "tag": "🇭🇰 香港节点",
             "outbounds": [
                 "🇭🇰 香港Pool1",
-                "🇭🇰 香港Pool2"
+                "🇭🇰 香港Pool2",
+                "🇭🇰 香港Pool3"
             ]
         },
         {
@@ -605,6 +612,21 @@
             "tag": "🇭🇰 香港Pool2",
             "providers": [
                 "🛫 NiceCloud"
+            ],
+            "includes": [
+                "香港|广港|HK|hk|Hong Kong|HongKong|hongkong"
+            ],
+            "excludes": "游戏",
+            "url": "https://www.gstatic.com/generate_204",
+            "interval": "5m",
+            "tolerance": 50,
+            "interrupt_exist_connections": true
+        },
+        {
+            "type": "urltest",
+            "tag": "🇭🇰 香港Pool3",
+            "providers": [
+                "🛫 Kele"
             ],
             "includes": [
                 "香港|广港|HK|hk|Hong Kong|HongKong|hongkong"
