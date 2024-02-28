@@ -112,7 +112,6 @@
           "bilibili",
           "media-cn",
           "cn",
-          "cn-ip",
           "cloud-cn",
           "download"
         ]
@@ -126,12 +125,12 @@
       },
       {
         "query_type": ["A", "AAAA"],
-        "rewrite_ttl": 1,
+        "rewrite_ttl": 0,
         "disable_cache": true,
         "server": "dns_fakeip"
       }
     ],
-    "final": ["dns_proxy", "dns_google"],
+    "final": ["dns_google", "dns_proxy"],
     "independent_cache": true,
     "reverse_mapping": true,
     "fakeip": {
