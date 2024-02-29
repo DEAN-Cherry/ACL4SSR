@@ -135,8 +135,8 @@
     "reverse_mapping": true,
     "fakeip": {
       "enabled": true,
-      "inet6_range": "fc00::/15",
-      "inet4_range": "198.18.0.0/15"
+      "inet6_range": "fc00::/16",
+      "inet4_range": "198.18.0.0/16"
     }
   }
 }
