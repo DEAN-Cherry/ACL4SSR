@@ -393,6 +393,7 @@
       "tag": "🇯🇵 日本节点",
       "providers": ["🛫 FastLink", "🛫 NiceCloud"],
       "includes": ["日本|川日|东京|大阪|泉日|埼玉|沪日|深日|[^-]日|JP|Japan"],
+      "excludes": "游戏",
       "url": "https://www.gstatic.com/generate_204",
       "interval": "5m",
       "tolerance": 50
@@ -421,6 +422,7 @@
       "tag": "🇸🇬 狮城节点",
       "providers": ["🛫 FastLink", "🛫 NiceCloud"],
       "includes": ["新加坡|坡|狮城|SG|Singapore"],
+      "excludes": "游戏",
       "url": "https://www.gstatic.com/generate_204",
       "interval": "5m",
       "tolerance": 50,

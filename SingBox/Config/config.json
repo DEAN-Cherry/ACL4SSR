@@ -660,6 +660,7 @@
             "includes": [
                 "日本|川日|东京|大阪|泉日|埼玉|沪日|深日|[^-]日|JP|Japan"
             ],
+            "excludes": "游戏",
             "url": "https://www.gstatic.com/generate_204",
             "interval": "5m",
             "tolerance": 50
@@ -701,6 +702,7 @@
             "includes": [
                 "新加坡|坡|狮城|SG|Singapore"
             ],
+            "excludes": "游戏",
             "url": "https://www.gstatic.com/generate_204",
             "interval": "5m",
             "tolerance": 50,
