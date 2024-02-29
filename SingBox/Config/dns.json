@@ -94,7 +94,12 @@
           "server",
           "baha",
           "media-proxy",
-          "proxy"
+          "proxy",
+          "games-1",
+          "games-2",
+          "games-3",
+          "games-4",
+          "games-5"
         ],
         "server": ["dns_proxy", "dns_google"]
       },
