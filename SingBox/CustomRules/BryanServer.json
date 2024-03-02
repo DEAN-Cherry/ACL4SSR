@@ -2,6 +2,8 @@
     "rules": [
         {
             "domain": [
+                "visaelf.net",
+                "visaelf.com",
                 "jellyfin.nieb.top",
                 "jf.nieb.top",
                 "auth.nieb.top",
@@ -10,7 +12,12 @@
                 "emby.pilipiliultra.top",
                 "emby.pilipiliultra.com"
             ],
+            "domain_keyword":[
+                "visaelf"
+            ],
             "domain_suffix": [
+                ".visaelf.net",
+                ".visaelf.com",
                 ".jellyfin.nieb.top",
                 ".jf.nieb.top",
                 ".emby.pilipiliultra.top",
