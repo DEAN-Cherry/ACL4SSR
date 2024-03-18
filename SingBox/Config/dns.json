@@ -125,13 +125,13 @@
         "fallback_rules": [
           { "match_all": false, "rule_set": ["cnip"], "invert": true }
         ],
-        "server": "dns_fakeip"
+        "server": ["dns_direct", "dns_ip", "dns_tx"]
       },
       {
         "query_type": ["A", "AAAA"],
         "rewrite_ttl": 0,
         "disable_cache": true,
-        "server": ["dns_direct", "dns_ip", "dns_tx"]
+        "server": "dns_fakeip"
       }
     ],
     "final": ["dns_google", "dns_proxy"],
