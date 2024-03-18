@@ -170,11 +170,15 @@
                 ]
             },
             {
-                "fallback_rules": {
-                    "match_all": false,
-                    "rule_set": "cnip",
-                    "invert": true
-                },
+                "fallback_rules": [
+                    {
+                        "match_all": false,
+                        "rule_set": [
+                            "cnip"
+                        ],
+                        "invert": true
+                    }
+                ],
                 "server": "dns_fakeip"
             },
             {

@@ -122,18 +122,16 @@
         ]
       },
       {
-        "fallback_rules": {
-          "match_all": false,
-          "rule_set": "cnip",
-          "invert": true
-        },
+        "fallback_rules": [
+          { "match_all": false, "rule_set": ["cnip"], "invert": true }
+        ],
         "server": "dns_fakeip"
       },
       {
         "query_type": ["A", "AAAA"],
         "rewrite_ttl": 0,
         "disable_cache": true,
-        "server": "dns_fakeip"
+        "server": ["dns_direct", "dns_ip", "dns_tx"]
       }
     ],
     "final": ["dns_google", "dns_proxy"],
