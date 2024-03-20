@@ -97,6 +97,7 @@
             {
                 "rule_set": [
                     "google-fcm",
+                    "google",
                     "microsoft-bing",
                     "microsoft-cloud",
                     "microsoft-service",
@@ -114,7 +115,7 @@
                     "A",
                     "AAAA"
                 ],
-                "rewrite_ttl": 1,
+                "rewrite_ttl": 0,
                 "disable_cache": true,
                 "server": "dns_fakeip"
             },
@@ -167,6 +168,23 @@
                     "cn",
                     "cloud-cn",
                     "download"
+                ]
+            },
+            {
+                "query_type": [
+                    "A",
+                    "AAAA"
+                ],
+                "rule_set": "geolocation-!cn-domain",
+                "rewrite_ttl": 0,
+                "disable_cache": true,
+                "server": "dns_fakeip"
+            },
+            {
+                "rule_set": "geolocation-!cn-domain",
+                "server": [
+                    "dns_proxy",
+                    "dns_google"
                 ]
             },
             {
@@ -1233,6 +1251,13 @@
                 "type": "remote",
                 "format": "binary",
                 "url": "https://cdn.jsdelivr.net/gh/DEAN-Cherry/meta-rules-dat@sing/bm7/Download.srs",
+                "download_detour": "DIRECT"
+            },
+            {
+                "tag": "geolocation-!cn-domain",
+                "type": "remote",
+                "format": "binary",
+                "url": "https://cdn.jsdelivr.net/gh/DEAN-Cherry/meta-rules-dat@sing/geo/geosite/geolocation-!cn.srs",
                 "download_detour": "DIRECT"
             }
         ],

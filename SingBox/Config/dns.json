@@ -61,6 +61,7 @@
       {
         "rule_set": [
           "google-fcm",
+          "google",
           "microsoft-bing",
           "microsoft-cloud",
           "microsoft-service",
@@ -75,7 +76,7 @@
           "proxy"
         ],
         "query_type": ["A", "AAAA"],
-        "rewrite_ttl": 1,
+        "rewrite_ttl": 0,
         "disable_cache": true,
         "server": "dns_fakeip"
       },
@@ -120,6 +121,17 @@
           "cloud-cn",
           "download"
         ]
+      },
+      {
+        "query_type": ["A", "AAAA"],
+        "rule_set": "geolocation-!cn-domain",
+        "rewrite_ttl": 0,
+        "disable_cache": true,
+        "server": "dns_fakeip"
+      },
+      {
+        "rule_set": "geolocation-!cn-domain",
+        "server": ["dns_proxy", "dns_google"]
       },
       {
         "fallback_rules": [
