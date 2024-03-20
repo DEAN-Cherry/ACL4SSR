@@ -181,13 +181,6 @@
                 "server": "dns_fakeip"
             },
             {
-                "rule_set": "geolocation-!cn-domain",
-                "server": [
-                    "dns_proxy",
-                    "dns_google"
-                ]
-            },
-            {
                 "fallback_rules": [
                     {
                         "match_all": false,
