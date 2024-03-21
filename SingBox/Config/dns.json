@@ -19,14 +19,12 @@
         "tag": "dns_proxy",
         "address": "https://cloudflare-dns.com/dns-query",
         "address_resolver": "dns_ip",
-        "strategy": "prefer_ipv4",
-        "detour":"GLOBAL"
+        "strategy": "prefer_ipv4"
       },
       {
         "tag": "dns_google",
         "address": "h3://8.8.8.8/dns-query",
-        "strategy": "prefer_ipv4",
-        "detour":"GLOBAL"
+        "strategy": "prefer_ipv4"
       },
       {
         "tag": "local",
@@ -48,7 +46,7 @@
       { "clash_mode": "Global", "server": "dns_fakeip" },
       {
         "clash_mode": "Direct",
-        "server": ["dns_direct", "dns_tx", "dns_google", "dns_ip"],
+        "server": ["dns_direct", "dns_tx", "dns_ip"],
         "outbound": "direct"
       },
       {
@@ -77,7 +75,7 @@
           "proxy"
         ],
         "query_type": ["A", "AAAA"],
-        "rewrite_ttl": 0,
+        "rewrite_ttl": 1,
         "disable_cache": true,
         "server": "dns_fakeip"
       },
@@ -124,7 +122,8 @@
       },
       {
         "fallback_rules": [
-          { "match_all": true, "rule_set": ["cnip"], "invert": true }
+          { "rule_set": ["cnip"], "invert": true },
+          { "match_all": true }
         ],
         "server": ["dns_direct", "dns_ip", "dns_tx"]
       },
@@ -135,11 +134,12 @@
         "server": "dns_fakeip"
       }
     ],
-    "final": ["dns_google", "dns_proxy"],
+    "final": ["dns_proxy", "dns_google"],
     "independent_cache": true,
+    "reverse_mapping": true,
     "fakeip": {
       "enabled": true,
-      "inet6_range": "fc00::/16",
+      "inet6_range": "fc00::/15",
       "inet4_range": "198.18.0.0/16"
     }
   }
