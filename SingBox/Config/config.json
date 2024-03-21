@@ -27,12 +27,14 @@
                 "tag": "dns_proxy",
                 "address": "https://cloudflare-dns.com/dns-query",
                 "address_resolver": "dns_ip",
-                "strategy": "prefer_ipv4"
+                "strategy": "prefer_ipv4",
+                "detour": "GLOBAL"
             },
             {
                 "tag": "dns_google",
                 "address": "h3://8.8.8.8/dns-query",
-                "strategy": "prefer_ipv4"
+                "strategy": "prefer_ipv4",
+                "detour": "GLOBAL"
             },
             {
                 "tag": "local",
@@ -129,9 +131,9 @@
                     "openai",
                     "gemini",
                     "conjbai",
+                    "server",
                     "youtube",
                     "netflix",
-                    "server",
                     "baha",
                     "media-proxy",
                     "proxy",
@@ -171,19 +173,9 @@
                 ]
             },
             {
-                "query_type": [
-                    "A",
-                    "AAAA"
-                ],
-                "rule_set": "geolocation-!cn-domain",
-                "rewrite_ttl": 0,
-                "disable_cache": true,
-                "server": "dns_fakeip"
-            },
-            {
                 "fallback_rules": [
                     {
-                        "match_all": false,
+                        "match_all": true,
                         "rule_set": [
                             "cnip"
                         ],
@@ -211,7 +203,6 @@
             "dns_proxy"
         ],
         "independent_cache": true,
-        "reverse_mapping": true,
         "fakeip": {
             "enabled": true,
             "inet6_range": "fc00::/16",
@@ -492,8 +483,8 @@
             "type": "selector",
             "tag": "🔴 Google",
             "outbounds": [
-                "DIRECT",
                 "🚀 节点选择",
+                "DIRECT",
                 "🇺🇲 美国节点",
                 "🇭🇰 香港节点",
                 "🇹🇼 台湾节点",
@@ -787,6 +778,7 @@
             "type": "selector",
             "tag": "GLOBAL",
             "outbounds": [
+                "🚀 节点选择",
                 "♻️ 自动选择",
                 "🔯 故障转移",
                 "🇭🇰 香港节点",
