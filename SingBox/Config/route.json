@@ -309,13 +309,6 @@
         "format": "binary",
         "url": "https://cdn.jsdelivr.net/gh/DEAN-Cherry/meta-rules-dat@sing/bm7/Download.srs",
         "download_detour": "DIRECT"
-      },
-      {
-        "tag": "geolocation-!cn-domain",
-        "type":"remote",
-        "format":"binary",
-        "url":"https://cdn.jsdelivr.net/gh/DEAN-Cherry/meta-rules-dat@sing/geo/geosite/geolocation-!cn.srs",
-        "download_detour":"DIRECT"
       }
     ],
     "final": "🐟 漏网之鱼"
