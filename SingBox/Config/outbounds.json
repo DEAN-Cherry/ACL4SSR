@@ -19,13 +19,13 @@
     {
       "type": "selector",
       "tag": "🚀 手动切换",
-      "providers": ["🛫 FastLink", "🛫 NiceCloud", "🛫 Kele"],
+      "providers": ["🛫 FastLink", "🛫 NiceCloud"],
       "excludes": "官网|客户端"
     },
     {
       "type": "urltest",
       "tag": "♻️ 自动选择",
-      "providers": ["🛫 FastLink", "🛫 NiceCloud", "🛫 Kele"],
+      "providers": ["🛫 FastLink", "🛫 NiceCloud"],
       "excludes": "游戏|官网|客户端|福利",
       "url": "http://www.apple.com/library/test/success.html",
       "interval": "5m",
@@ -34,7 +34,7 @@
     {
       "type": "urltest",
       "tag": "🔯 故障转移",
-      "providers": ["🛫 FastLink", "🛫 NiceCloud", "🛫 Kele"]
+      "providers": ["🛫 FastLink", "🛫 NiceCloud"]
     },
     {
       "type": "selector",
@@ -344,7 +344,7 @@
     {
       "type": "selector",
       "tag": "🇭🇰 香港节点",
-      "outbounds": ["🇭🇰 香港Pool1", "🇭🇰 香港Pool2", "🇭🇰 香港Pool3"]
+      "outbounds": ["🇭🇰 香港Pool1", "🇭🇰 香港Pool2"]
     },
     {
       "type": "urltest",
@@ -467,19 +467,9 @@
     {
       "type": "selector",
       "tag": "GLOBAL",
-      "outbounds": [
-        "🚀 节点选择",
-        "♻️ 自动选择",
-        "🔯 故障转移",
-        "🇭🇰 香港节点",
-        "🇹🇼 台湾节点",
-        "🇸🇬 狮城节点",
-        "🇯🇵 日本节点",
-        "🇺🇲 美国节点",
-        "🇰🇷 韩国节点",
-        "🚀 手动切换",
-        "DIRECT"
-      ]
+      "providers": ["🛫 FastLink", "🛫 NiceCloud"],
+      "excludes": "官网|客户端",
+      "outbounds": ["DIRECT"]
     },
     {
       "tag": "REJECT",
