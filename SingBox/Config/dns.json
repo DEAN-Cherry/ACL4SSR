@@ -61,6 +61,7 @@
         "rule_set": [
           "google-fcm",
           "google",
+          "telegram",
           "microsoft-bing",
           "microsoft-cloud",
           "microsoft-service",
@@ -83,6 +84,7 @@
         "rule_set": [
           "google-fcm",
           "google",
+          "telegram",
           "microsoft-bing",
           "microsoft-cloud",
           "microsoft-service",
