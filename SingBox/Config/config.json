@@ -167,24 +167,9 @@
                     "bilibili",
                     "media-cn",
                     "cn",
+                    "cn-ip",
                     "cloud-cn",
                     "download"
-                ]
-            },
-            {
-                "fallback_rules": [
-                    {
-                        "rule_set": [
-                            "cnip"
-                        ],
-                        "invert": true
-                    },
-                    {
-                        "match_all": true
-                    }
-                ],
-                "server": [
-                    "dns_google"
                 ]
             },
             {
