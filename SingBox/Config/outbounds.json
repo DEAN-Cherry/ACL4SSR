@@ -370,17 +370,6 @@
     },
     {
       "type": "urltest",
-      "tag": "🇭🇰 香港Pool3",
-      "providers": ["🛫 Kele"],
-      "includes": ["香港|广港|HK|hk|Hong Kong|HongKong|hongkong"],
-      "excludes": "游戏",
-      "url": "https://www.gstatic.com/generate_204",
-      "interval": "5m",
-      "tolerance": 50,
-      "interrupt_exist_connections": true
-    },
-    {
-      "type": "urltest",
       "tag": "🇹🇼 台湾节点",
       "providers": ["🛫 FastLink", "🛫 NiceCloud"],
       "includes": ["台|新北|彰化|TW|Taiwan"],
