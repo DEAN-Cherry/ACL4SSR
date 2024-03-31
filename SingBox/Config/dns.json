@@ -23,7 +23,7 @@
       },
       {
         "tag": "dns_google",
-        "address": "h3://8.8.8.8/dns-query",
+        "address": "https://8.8.8.8/dns-query",
         "strategy": "prefer_ipv4"
       },
       {
@@ -73,29 +73,6 @@
           "netflix",
           "baha",
           "media-proxy",
-          "proxy"
-        ],
-        "query_type": ["A", "AAAA"],
-        "rewrite_ttl": 1,
-        "disable_cache": true,
-        "server": "dns_fakeip"
-      },
-      {
-        "rule_set": [
-          "google-fcm",
-          "google",
-          "telegram",
-          "microsoft-bing",
-          "microsoft-cloud",
-          "microsoft-service",
-          "openai",
-          "gemini",
-          "conjbai",
-          "server",
-          "youtube",
-          "netflix",
-          "baha",
-          "media-proxy",
           "proxy",
           "games-1",
           "games-2",
@@ -103,7 +80,8 @@
           "games-4",
           "games-5"
         ],
-        "server": ["dns_proxy", "dns_google"]
+        "server": ["dns_proxy", "dns_google"],
+        "client_subnet": "183.33.240.1"
       },
       {
         "query_type": ["A", "AAAA"],
@@ -118,16 +96,10 @@
           "bilibili",
           "media-cn",
           "cn",
+          "cn-ip",
           "cloud-cn",
           "download"
         ]
-      },
-      {
-        "fallback_rules": [
-          { "rule_set": ["cnip"], "invert": true},
-          { "match_all": true }
-        ],
-        "server": ["dns_google"]
       },
       {
         "query_type": ["A", "AAAA"],
