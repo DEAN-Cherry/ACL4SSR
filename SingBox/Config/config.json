@@ -25,7 +25,7 @@
             },
             {
                 "tag": "dns_proxy",
-                "address": "https://cloudflare-dns.com/dns-query",
+                "address": "https://1.0.0.1/dns-query",
                 "address_resolver": "dns_ip",
                 "strategy": "prefer_ipv4"
             },
@@ -76,12 +76,6 @@
                     "dns_ip"
                 ],
                 "outbound": "direct"
-            },
-            {
-                "domain": [
-                    "internal.jf.nieb.top"
-                ],
-                "server": "local"
             },
             {
                 "rule_set": [
