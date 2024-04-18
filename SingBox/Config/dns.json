@@ -121,6 +121,17 @@
         ]
       },
       {
+        "fallback_rules": [
+          {
+            "rule_set": ["cnip"],
+            "invert": true,
+            "server": ["dns_google", "dns_proxy"]
+          },
+          { "match_all": true }
+        ],
+        "server": ["dns_google", "dns_proxy"]
+      },
+      {
         "query_type": ["A", "AAAA"],
         "rewrite_ttl": 0,
         "disable_cache": true,
