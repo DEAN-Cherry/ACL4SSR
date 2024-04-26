@@ -139,8 +139,7 @@
                 "server": [
                     "dns_proxy",
                     "dns_google"
-                ],
-                "client_subnet": "183.33.240.1"
+                ]
             },
             {
                 "query_type": [
