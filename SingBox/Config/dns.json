@@ -114,7 +114,7 @@
           "cloud-cn",
           "download"
         ],
-        "server": ["dns_direct", "dns_tx", "dns_ip", "local"],
+        "server": ["dns_direct", "dns_tx", "dns_ip"],
         "client_subnet": "183.33.240.1"
       },
       {
