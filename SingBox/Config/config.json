@@ -146,11 +146,6 @@
                     "A",
                     "AAAA"
                 ],
-                "server": [
-                    "dns_direct",
-                    "dns_tx",
-                    "dns_ip"
-                ],
                 "rule_set": [
                     "direct-0",
                     "direct-1",
@@ -164,7 +159,13 @@
                     "cn-ip",
                     "cloud-cn",
                     "download"
-                ]
+                ],
+                "server": [
+                    "dns_direct",
+                    "dns_tx",
+                    "dns_ip"
+                ],
+                "client_subnet": "183.33.240.1"
             },
             {
                 "fallback_rules": [
