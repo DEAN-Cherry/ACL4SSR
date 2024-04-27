@@ -25,14 +25,11 @@
             },
             {
                 "tag": "dns_proxy",
-                "address": "https://1.0.0.1/dns-query",
-                "address_resolver": "dns_ip",
-                "strategy": "prefer_ipv4"
+                "address": "https://1.0.0.1/dns-query"
             },
             {
                 "tag": "dns_google",
-                "address": "https://8.8.8.8/dns-query",
-                "strategy": "prefer_ipv4"
+                "address": "https://8.8.8.8/dns-query"
             },
             {
                 "tag": "local",
@@ -163,7 +160,8 @@
                 "server": [
                     "dns_direct",
                     "dns_tx",
-                    "dns_ip"
+                    "dns_ip",
+                    "local"
                 ],
                 "client_subnet": "183.33.240.1"
             },
