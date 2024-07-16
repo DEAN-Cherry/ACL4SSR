@@ -45,10 +45,6 @@
         "server": "dns_direct"
       },
       {
-        "rule_set": ["ads", "adb-1", "adb-2", "ads-p", "privacy"],
-        "server": "dns_block"
-      },
-      {
         "rule_set": [
           "google-fcm",
           "google",
