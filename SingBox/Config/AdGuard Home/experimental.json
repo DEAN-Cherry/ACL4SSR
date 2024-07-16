@@ -1,0 +1,10 @@
+{
+    "experimental": {
+      "clash_api": {
+        "external_controller": "0.0.0.0:9999",
+        "secret": "",
+        "default_mode": "Rule"
+      }
+    }
+  }
+  

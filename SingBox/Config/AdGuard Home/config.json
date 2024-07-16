@@ -1,0 +1,1109 @@
+{
+    "log": {
+        "disabled": false,
+        "level": "info",
+        "timestamp": true
+    },
+    "dns": {
+        "servers": [
+            {
+                "tag": "dns_block",
+                "address": "rcode://success"
+            },
+            {
+                "tag": "dns_direct",
+                "address": [
+                    "https://223.5.5.5/dns-query",
+                    "https://1.12.12.12/dns-query"
+                ],
+                "strategy": "prefer_ipv6",
+                "detour": "DIRECT"
+            },
+            {
+                "tag": "dns_tx",
+                "address": "https://doh.pub/dns-query",
+                "address_resolver": "dns_ip",
+                "strategy": "prefer_ipv6",
+                "detour": "DIRECT"
+            },
+            {
+                "tag": "dns_proxy",
+                "address": [
+                    "https://1.1.1.1/dns-query",
+                    "https://8.8.8.8/dns-query"
+                ]
+            },
+            {
+                "tag": "dns_google",
+                "address": "https://8.8.8.8/dns-query"
+            },
+            {
+                "tag": "local",
+                "address": "local"
+            },
+            {
+                "tag": "dns_ip",
+                "address": "https://223.5.5.5/dns-query",
+                "detour": "DIRECT"
+            },
+            {
+                "tag": "dns_fakeip",
+                "address": "fakeip"
+            }
+        ],
+        "rules": [
+            {
+                "outbound": "any",
+                "server": "dns_direct"
+            },
+            {
+                "clash_mode": "Global",
+                "server": "dns_fakeip"
+            },
+            {
+                "clash_mode": "Direct",
+                "server": "dns_direct"
+            },
+            {
+                "rule_set": [
+                    "ads",
+                    "adb-1",
+                    "adb-2",
+                    "ads-p",
+                    "privacy"
+                ],
+                "server": "dns_block"
+            },
+            {
+                "rule_set": [
+                    "google-fcm",
+                    "google",
+                    "telegram",
+                    "microsoft-bing",
+                    "microsoft-cloud",
+                    "microsoft-service",
+                    "openai",
+                    "gemini",
+                    "conjbai",
+                    "server",
+                    "youtube",
+                    "netflix",
+                    "baha",
+                    "media-proxy",
+                    "proxy"
+                ],
+                "query_type": [
+                    "A",
+                    "AAAA"
+                ],
+                "rewrite_ttl": 0,
+                "disable_cache": true,
+                "server": "dns_fakeip"
+            },
+            {
+                "rule_set": [
+                    "google-fcm",
+                    "google",
+                    "telegram",
+                    "microsoft-bing",
+                    "microsoft-cloud",
+                    "microsoft-service",
+                    "openai",
+                    "gemini",
+                    "conjbai",
+                    "server",
+                    "youtube",
+                    "netflix",
+                    "baha",
+                    "media-proxy",
+                    "proxy",
+                    "games-1",
+                    "games-2",
+                    "games-3",
+                    "games-4",
+                    "games-5"
+                ],
+                "server": "dns_proxy"
+            },
+            {
+                "query_type": [
+                    "A",
+                    "AAAA"
+                ],
+                "rule_set": [
+                    "direct-0",
+                    "direct-1",
+                    "google-cn",
+                    "direct-3",
+                    "apple",
+                    "netease-music",
+                    "bilibili",
+                    "media-cn",
+                    "cn",
+                    "cn-ip",
+                    "cloud-cn",
+                    "download"
+                ],
+                "server": "dns_direct"
+            },
+            {
+                "fallback_rules": [
+                    {
+                        "rule_set": [
+                            "cn-ip"
+                        ],
+                        "invert": true
+                    }
+                ],
+                "server": "dns_proxy",
+                "rewrite_ttl": 1
+            },
+            {
+                "query_type": [
+                    "A",
+                    "AAAA"
+                ],
+                "rewrite_ttl": 0,
+                "disable_cache": true,
+                "server": "dns_fakeip"
+            }
+        ],
+        "final": "dns_proxy",
+        "independent_cache": true,
+        "reverse_mapping": true,
+        "fakeip": {
+            "enabled": true,
+            "inet6_range": "fc00::/18",
+            "inet4_range": "198.18.0.0/15"
+        }
+    },
+    "inbounds": [],
+    "outbounds": [
+        {
+            "type": "selector",
+            "tag": "🚀 节点选择",
+            "outbounds": [
+                "♻️ 自动选择",
+                "🔯 故障转移",
+                "🇭🇰 香港节点",
+                "🇹🇼 台湾节点",
+                "🇸🇬 狮城节点",
+                "🇯🇵 日本节点",
+                "🇺🇲 美国节点",
+                "🇰🇷 韩国节点",
+                "🚀 手动切换",
+                "DIRECT"
+            ]
+        },
+        {
+            "type": "selector",
+            "tag": "🚀 手动切换",
+            "providers": [
+                "🛫 FastLink",
+                "🛫 NiceCloud"
+            ],
+            "excludes": "官网|客户端"
+        },
+        {
+            "type": "urltest",
+            "tag": "♻️ 自动选择",
+            "providers": [
+                "🛫 FastLink",
+                "🛫 NiceCloud"
+            ],
+            "excludes": "游戏|官网|客户端|福利",
+            "url": "http://www.apple.com/library/test/success.html",
+            "interval": "5m",
+            "tolerance": 50
+        },
+        {
+            "type": "urltest",
+            "tag": "🔯 故障转移",
+            "providers": [
+                "🛫 FastLink",
+                "🛫 NiceCloud"
+            ]
+        },
+        {
+            "type": "selector",
+            "tag": "📲 电报消息",
+            "outbounds": [
+                "🚀 节点选择",
+                "♻️ 自动选择",
+                "🇸🇬 狮城节点",
+                "🇭🇰 香港节点",
+                "🇹🇼 台湾节点",
+                "🇯🇵 日本节点",
+                "🇺🇲 美国节点",
+                "🇰🇷 韩国节点",
+                "🚀 手动切换",
+                "DIRECT"
+            ]
+        },
+        {
+            "type": "selector",
+            "tag": "💬 OpenAi",
+            "outbounds": [
+                "🚀 节点选择",
+                "♻️ 自动选择",
+                "🇸🇬 狮城节点",
+                "🇭🇰 香港节点",
+                "🇹🇼 台湾节点",
+                "🇯🇵 日本节点",
+                "🇺🇲 美国节点",
+                "🇰🇷 韩国节点",
+                "🚀 手动切换",
+                "DIRECT"
+            ]
+        },
+        {
+            "type": "selector",
+            "tag": "🫧 Gemini",
+            "outbounds": [
+                "🚀 节点选择",
+                "♻️ 自动选择",
+                "🇸🇬 狮城节点",
+                "🇭🇰 香港节点",
+                "🇹🇼 台湾节点",
+                "🇯🇵 日本节点",
+                "🇺🇲 美国节点",
+                "🇰🇷 韩国节点",
+                "🚀 手动切换",
+                "DIRECT"
+            ]
+        },
+        {
+            "type": "selector",
+            "tag": "👾 Copilot JBAI",
+            "outbounds": [
+                "🚀 节点选择",
+                "♻️ 自动选择",
+                "🚀 手动切换",
+                "🇭🇰 香港节点",
+                "🇹🇼 台湾节点",
+                "🇯🇵 日本节点",
+                "🇰🇷 韩国节点",
+                "🇸🇬 狮城节点",
+                "🇺🇲 美国节点",
+                "🇪🇺 欧洲节点",
+                "🕹️ 游戏节点",
+                "DIRECT"
+            ]
+        },
+        {
+            "type": "selector",
+            "tag": "📹 油管视频",
+            "outbounds": [
+                "🚀 节点选择",
+                "♻️ 自动选择",
+                "🇸🇬 狮城节点",
+                "🇭🇰 香港节点",
+                "🇹🇼 台湾节点",
+                "🇯🇵 日本节点",
+                "🇺🇲 美国节点",
+                "🇰🇷 韩国节点",
+                "🚀 手动切换",
+                "DIRECT"
+            ]
+        },
+        {
+            "type": "selector",
+            "tag": "🎥 奈飞视频",
+            "outbounds": [
+                "🎥 奈飞节点",
+                "🚀 节点选择",
+                "♻️ 自动选择",
+                "🇸🇬 狮城节点",
+                "🇭🇰 香港节点",
+                "🇹🇼 台湾节点",
+                "🇯🇵 日本节点",
+                "🇺🇲 美国节点",
+                "🇰🇷 韩国节点",
+                "🚀 手动切换",
+                "DIRECT"
+            ]
+        },
+        {
+            "type": "selector",
+            "tag": "📺 巴哈姆特",
+            "outbounds": [
+                "🇹🇼 台湾节点",
+                "🚀 节点选择",
+                "🚀 手动切换",
+                "DIRECT"
+            ]
+        },
+        {
+            "type": "selector",
+            "tag": "📺 哔哩哔哩",
+            "outbounds": [
+                "🎯 全球直连",
+                "🇭🇰 香港节点",
+                "🇹🇼 台湾节点"
+            ]
+        },
+        {
+            "type": "selector",
+            "tag": "🌍 国外媒体",
+            "outbounds": [
+                "🚀 节点选择",
+                "♻️ 自动选择",
+                "🇭🇰 香港节点",
+                "🇹🇼 台湾节点",
+                "🇸🇬 狮城节点",
+                "🇯🇵 日本节点",
+                "🇺🇲 美国节点",
+                "🇰🇷 韩国节点",
+                "🚀 手动切换",
+                "DIRECT"
+            ]
+        },
+        {
+            "type": "selector",
+            "tag": "🌏 国内媒体",
+            "outbounds": [
+                "DIRECT",
+                "🇭🇰 香港节点",
+                "🇹🇼 台湾节点",
+                "🇸🇬 狮城节点",
+                "🇯🇵 日本节点",
+                "🚀 手动切换"
+            ]
+        },
+        {
+            "type": "selector",
+            "tag": "☁️ CloudFlare Server",
+            "outbounds": [
+                "♻️ 自动选择",
+                "DIRECT",
+                "🇭🇰 香港节点",
+                "🇹🇼 台湾节点",
+                "🇸🇬 狮城节点",
+                "🇯🇵 日本节点",
+                "🇺🇲 美国节点",
+                "🇰🇷 韩国节点",
+                "🚀 手动切换"
+            ]
+        },
+        {
+            "type": "selector",
+            "tag": "📢 谷歌FCM",
+            "outbounds": [
+                "DIRECT",
+                "🚀 节点选择",
+                "🇺🇲 美国节点",
+                "🇭🇰 香港节点",
+                "🇹🇼 台湾节点",
+                "🇸🇬 狮城节点",
+                "🇯🇵 日本节点",
+                "🇰🇷 韩国节点",
+                "🚀 手动切换"
+            ]
+        },
+        {
+            "type": "selector",
+            "tag": "Ⓜ️ 微软Bing",
+            "outbounds": [
+                "🚀 节点选择",
+                "♻️ 自动选择",
+                "🇭🇰 香港节点",
+                "🇹🇼 台湾节点",
+                "🇯🇵 日本节点",
+                "🇸🇬 狮城节点",
+                "🇺🇲 美国节点",
+                "DIRECT"
+            ]
+        },
+        {
+            "type": "selector",
+            "tag": "Ⓜ️ 微软云盘",
+            "outbounds": [
+                "DIRECT",
+                "🚀 节点选择",
+                "🇺🇲 美国节点",
+                "🇭🇰 香港节点",
+                "🇹🇼 台湾节点",
+                "🇸🇬 狮城节点",
+                "🇯🇵 日本节点",
+                "🇰🇷 韩国节点",
+                "🚀 手动切换"
+            ]
+        },
+        {
+            "type": "selector",
+            "tag": "Ⓜ️ 微软服务",
+            "outbounds": [
+                "DIRECT",
+                "🚀 节点选择",
+                "🇺🇲 美国节点",
+                "🇭🇰 香港节点",
+                "🇹🇼 台湾节点",
+                "🇸🇬 狮城节点",
+                "🇯🇵 日本节点",
+                "🇰🇷 韩国节点",
+                "🚀 手动切换"
+            ]
+        },
+        {
+            "type": "selector",
+            "tag": "🔴 Google",
+            "outbounds": [
+                "🚀 节点选择",
+                "DIRECT",
+                "🇺🇲 美国节点",
+                "🇭🇰 香港节点",
+                "🇹🇼 台湾节点",
+                "🇸🇬 狮城节点",
+                "🇯🇵 日本节点",
+                "🇰🇷 韩国节点",
+                "🇪🇺 欧洲节点",
+                "🚀 手动切换"
+            ]
+        },
+        {
+            "type": "selector",
+            "tag": "🍎 苹果服务",
+            "outbounds": [
+                "DIRECT",
+                "🚀 节点选择",
+                "🇺🇲 美国节点",
+                "🇭🇰 香港节点",
+                "🇹🇼 台湾节点",
+                "🇸🇬 狮城节点",
+                "🇯🇵 日本节点",
+                "🇰🇷 韩国节点",
+                "🚀 手动切换"
+            ]
+        },
+        {
+            "type": "selector",
+            "tag": "🎮 游戏平台",
+            "outbounds": [
+                "DIRECT",
+                "🕹️ 游戏节点",
+                "🚀 节点选择",
+                "🇺🇲 美国节点",
+                "🇭🇰 香港节点",
+                "🇹🇼 台湾节点",
+                "🇸🇬 狮城节点",
+                "🇯🇵 日本节点",
+                "🇰🇷 韩国节点",
+                "🚀 手动切换"
+            ]
+        },
+        {
+            "type": "selector",
+            "tag": "🎶 网易音乐",
+            "outbounds": [
+                "DIRECT",
+                "🚀 节点选择",
+                "♻️ 自动选择",
+                "🎶 网易节点"
+            ]
+        },
+        {
+            "type": "selector",
+            "tag": "🎯 全球直连",
+            "outbounds": [
+                "DIRECT",
+                "🚀 节点选择",
+                "♻️ 自动选择"
+            ]
+        },
+        {
+            "type": "selector",
+            "tag": "🐟 漏网之鱼",
+            "outbounds": [
+                "🚀 节点选择",
+                "♻️ 自动选择",
+                "DIRECT",
+                "🇭🇰 香港节点",
+                "🇹🇼 台湾节点",
+                "🇸🇬 狮城节点",
+                "🇯🇵 日本节点",
+                "🇺🇲 美国节点",
+                "🇰🇷 韩国节点",
+                "🚀 手动切换"
+            ]
+        },
+        {
+            "type": "selector",
+            "tag": "🇭🇰 香港节点",
+            "outbounds": [
+                "🇭🇰 香港Pool1",
+                "🇭🇰 香港Pool2"
+            ]
+        },
+        {
+            "type": "urltest",
+            "tag": "🇭🇰 香港Pool1",
+            "providers": [
+                "🛫 FastLink",
+                "🛫 NiceCloud"
+            ],
+            "includes": [
+                "香港|广港|HK|hk|Hong Kong|HongKong|hongkong"
+            ],
+            "excludes": "游戏",
+            "url": "https://www.gstatic.com/generate_204",
+            "interval": "5m",
+            "tolerance": 50,
+            "interrupt_exist_connections": true
+        },
+        {
+            "type": "urltest",
+            "tag": "🇭🇰 香港Pool2",
+            "providers": [
+                "🛫 NiceCloud"
+            ],
+            "includes": [
+                "香港|广港|HK|hk|Hong Kong|HongKong|hongkong"
+            ],
+            "excludes": "游戏",
+            "url": "https://www.gstatic.com/generate_204",
+            "interval": "5m",
+            "tolerance": 50,
+            "interrupt_exist_connections": true
+        },
+        {
+            "type": "urltest",
+            "tag": "🇹🇼 台湾节点",
+            "providers": [
+                "🛫 FastLink",
+                "🛫 NiceCloud"
+            ],
+            "includes": [
+                "台|新北|彰化|TW|Taiwan"
+            ],
+            "url": "https://www.gstatic.com/generate_204",
+            "interval": "5m",
+            "tolerance": 50
+        },
+        {
+            "type": "urltest",
+            "tag": "🇯🇵 日本节点",
+            "providers": [
+                "🛫 FastLink",
+                "🛫 NiceCloud"
+            ],
+            "includes": [
+                "日本|川日|东京|大阪|泉日|埼玉|沪日|深日|[^-]日|JP|Japan"
+            ],
+            "excludes": "游戏",
+            "url": "https://www.gstatic.com/generate_204",
+            "interval": "5m",
+            "tolerance": 50
+        },
+        {
+            "type": "urltest",
+            "tag": "🇺🇲 美国节点",
+            "providers": [
+                "🛫 FastLink",
+                "🛫 NiceCloud"
+            ],
+            "includes": [
+                "美|波特兰|达拉斯|俄勒冈|凤凰城|费利蒙|硅谷|拉斯维加斯|洛杉矶|圣何塞|圣克拉拉|西雅图|芝加哥|US|United States"
+            ],
+            "url": "http://www.apple.com/library/test/success.html",
+            "interval": "5m",
+            "tolerance": 100
+        },
+        {
+            "type": "urltest",
+            "tag": "🇪🇺 欧洲节点",
+            "providers": [
+                "🛫 FastLink",
+                "🛫 NiceCloud"
+            ],
+            "includes": [
+                "欧洲|德国|法国|英国|土耳其|加拿大|阿根廷|爱沙尼亚"
+            ],
+            "interval": "5m",
+            "tolerance": 150
+        },
+        {
+            "type": "urltest",
+            "tag": "🇸🇬 狮城节点",
+            "providers": [
+                "🛫 FastLink",
+                "🛫 NiceCloud"
+            ],
+            "includes": [
+                "新加坡|坡|狮城|SG|Singapore"
+            ],
+            "excludes": "游戏",
+            "url": "https://www.gstatic.com/generate_204",
+            "interval": "5m",
+            "tolerance": 50,
+            "interrupt_exist_connections": true
+        },
+        {
+            "type": "urltest",
+            "tag": "🇰🇷 韩国节点",
+            "providers": [
+                "🛫 FastLink",
+                "🛫 NiceCloud"
+            ],
+            "includes": [
+                "KR|Korea|KOR|首尔|韩|韓"
+            ],
+            "url": "http://www.apple.com/library/test/success.html",
+            "interval": "5m",
+            "tolerance": 50
+        },
+        {
+            "type": "urltest",
+            "tag": "🕹️ 游戏节点",
+            "providers": [
+                "🛫 FastLink"
+            ],
+            "includes": [
+                "游戏|Game|Gaming|Gamer|玩家"
+            ],
+            "interval": "5m",
+            "tolerance": 50
+        },
+        {
+            "type": "urltest",
+            "tag": "🎶 网易节点",
+            "providers": [
+                "🛫 FastLink",
+                "🛫 NiceCloud"
+            ],
+            "includes": [
+                "网易|音乐|解锁|Music|NetEase"
+            ],
+            "excludes": "游戏",
+            "interval": "5m",
+            "tolerance": 50
+        },
+        {
+            "type": "urltest",
+            "tag": "🎥 奈飞节点",
+            "providers": [
+                "🛫 FastLink",
+                "🛫 NiceCloud"
+            ],
+            "includes": [
+                "NF|奈飞|解锁|Netflix|NETFLIX|Media"
+            ],
+            "excludes": "音乐",
+            "interval": "5m",
+            "tolerance": 50
+        },
+        {
+            "type": "selector",
+            "tag": "GLOBAL",
+            "providers": [
+                "🛫 FastLink",
+                "🛫 NiceCloud"
+            ],
+            "excludes": "官网|客户端",
+            "outbounds": [
+                "DIRECT"
+            ]
+        },
+        {
+            "tag": "REJECT",
+            "type": "block"
+        },
+        {
+            "tag": "DIRECT",
+            "type": "direct"
+        },
+        {
+            "tag": "dns-out",
+            "type": "dns"
+        }
+    ],
+    "route": {
+        "rules": [
+            {
+                "protocol": "dns",
+                "outbound": "dns-out"
+            },
+            {
+                "clash_mode": "Global",
+                "outbound": "GLOBAL"
+            },
+            {
+                "clash_mode": "Direct",
+                "outbound": "DIRECT"
+            },
+            {
+                "rule_set": "direct-0",
+                "outbound": "🎯 全球直连"
+            },
+            {
+                "rule_set": "direct-1",
+                "outbound": "🎯 全球直连"
+            },
+            {
+                "rule_set": "google-fcm",
+                "outbound": "📢 谷歌FCM"
+            },
+            {
+                "rule_set": "direct-3",
+                "outbound": "🎯 全球直连"
+            },
+            {
+                "rule_set": "microsoft-bing",
+                "outbound": "Ⓜ️ 微软Bing"
+            },
+            {
+                "rule_set": "microsoft-cloud",
+                "outbound": "Ⓜ️ 微软云盘"
+            },
+            {
+                "rule_set": "microsoft-service",
+                "outbound": "Ⓜ️ 微软服务"
+            },
+            {
+                "rule_set": "openai",
+                "outbound": "💬 OpenAi"
+            },
+            {
+                "rule_set": "gemini",
+                "outbound": "🫧 Gemini"
+            },
+            {
+                "rule_set": "conjbai",
+                "outbound": "👾 Copilot JBAI"
+            },
+            {
+                "rule_set": "google",
+                "outbound": "🔴 Google"
+            },
+            {
+                "rule_set": "apple",
+                "outbound": "🍎 苹果服务"
+            },
+            {
+                "rule_set": "telegram",
+                "outbound": "📲 电报消息"
+            },
+            {
+                "rule_set": "netease-music",
+                "outbound": "🎶 网易音乐"
+            },
+            {
+                "rule_set": "games-1",
+                "outbound": "🎮 游戏平台"
+            },
+            {
+                "rule_set": "games-2",
+                "outbound": "🎮 游戏平台"
+            },
+            {
+                "rule_set": "games-3",
+                "outbound": "🎮 游戏平台"
+            },
+            {
+                "rule_set": "games-4",
+                "outbound": "🎮 游戏平台"
+            },
+            {
+                "rule_set": "games-5",
+                "outbound": "🎮 游戏平台"
+            },
+            {
+                "rule_set": "youtube",
+                "outbound": "📹 油管视频"
+            },
+            {
+                "rule_set": "netflix",
+                "outbound": "🎥 奈飞视频"
+            },
+            {
+                "rule_set": "baha",
+                "outbound": "📺 巴哈姆特"
+            },
+            {
+                "rule_set": "bilibili-hmt",
+                "outbound": "📺 哔哩哔哩"
+            },
+            {
+                "rule_set": "bilibili",
+                "outbound": "📺 哔哩哔哩"
+            },
+            {
+                "rule_set": "media-cn",
+                "outbound": "🌏 国内媒体"
+            },
+            {
+                "rule_set": "media-proxy",
+                "outbound": "🌍 国外媒体"
+            },
+            {
+                "rule_set": "proxy",
+                "outbound": "🚀 节点选择"
+            },
+            {
+                "rule_set": "server",
+                "outbound": "☁️ CloudFlare Server"
+            },
+            {
+                "rule_set": "google-cn",
+                "outbound": "🎯 全球直连"
+            },
+            {
+                "rule_set": "cn",
+                "outbound": "🎯 全球直连"
+            },
+            {
+                "rule_set": "cn-ip",
+                "outbound": "🎯 全球直连"
+            },
+            {
+                "rule_set": "cloud-cn",
+                "outbound": "🎯 全球直连"
+            },
+            {
+                "rule_set": "download",
+                "outbound": "🎯 全球直连"
+            }
+        ],
+        "rule_set": [
+            {
+                "tag": "direct-0",
+                "type": "remote",
+                "format": "binary",
+                "url": "https://cdn.jsdelivr.net/gh/DEAN-Cherry/meta-rules-dat@sing/bm7/Lan.srs",
+                "download_detour": "DIRECT"
+            },
+            {
+                "tag": "direct-1",
+                "type": "remote",
+                "format": "binary",
+                "url": "https://cdn.jsdelivr.net/gh/DEAN-Cherry/ACL4SSR@dev/SingBox/CustomRules/UnBan.srs",
+                "download_detour": "DIRECT"
+            },
+            {
+                "tag": "google-fcm",
+                "type": "remote",
+                "format": "binary",
+                "url": "https://cdn.jsdelivr.net/gh/DEAN-Cherry/meta-rules-dat@sing/bm7/GoogleFCM.srs",
+                "download_detour": "DIRECT"
+            },
+            {
+                "tag": "google-cn",
+                "type": "remote",
+                "format": "binary",
+                "url": "https://cdn.jsdelivr.net/gh/DEAN-Cherry/meta-rules-dat@sing/geo/geosite/google-cn.srs",
+                "download_detour": "DIRECT"
+            },
+            {
+                "tag": "google",
+                "type": "remote",
+                "format": "binary",
+                "url": "https://cdn.jsdelivr.net/gh/DEAN-Cherry/meta-rules-dat@sing/bm7/Google.srs",
+                "download_detour": "DIRECT"
+            },
+            {
+                "tag": "direct-3",
+                "type": "remote",
+                "format": "binary",
+                "url": "https://cdn.jsdelivr.net/gh/DEAN-Cherry/meta-rules-dat@sing/bm7/SteamCN.srs",
+                "download_detour": "DIRECT"
+            },
+            {
+                "tag": "microsoft-bing",
+                "type": "remote",
+                "format": "binary",
+                "url": "https://cdn.jsdelivr.net/gh/DEAN-Cherry/ACL4SSR@dev/SingBox/CustomRules/Bing.srs",
+                "download_detour": "DIRECT"
+            },
+            {
+                "tag": "microsoft-cloud",
+                "type": "remote",
+                "format": "binary",
+                "url": "https://cdn.jsdelivr.net/gh/DEAN-Cherry/meta-rules-dat@sing/bm7/OneDrive.srs",
+                "download_detour": "DIRECT"
+            },
+            {
+                "tag": "microsoft-service",
+                "type": "remote",
+                "format": "binary",
+                "url": "https://cdn.jsdelivr.net/gh/DEAN-Cherry/meta-rules-dat@sing/bm7/Microsoft.srs",
+                "download_detour": "DIRECT"
+            },
+            {
+                "tag": "apple",
+                "type": "remote",
+                "format": "binary",
+                "url": "https://cdn.jsdelivr.net/gh/DEAN-Cherry/ACL4SSR@dev/SingBox/CustomRules/Apple.srs",
+                "download_detour": "DIRECT"
+            },
+            {
+                "tag": "telegram",
+                "type": "remote",
+                "format": "binary",
+                "url": "https://cdn.jsdelivr.net/gh/DEAN-Cherry/meta-rules-dat@sing/bm7/Telegram.srs",
+                "download_detour": "DIRECT"
+            },
+            {
+                "tag": "openai",
+                "type": "remote",
+                "format": "binary",
+                "url": "https://cdn.jsdelivr.net/gh/DEAN-Cherry/meta-rules-dat@sing/bm7/OpenAI.srs",
+                "download_detour": "DIRECT"
+            },
+            {
+                "tag": "gemini",
+                "type": "remote",
+                "format": "binary",
+                "url": "https://cdn.jsdelivr.net/gh/DEAN-Cherry/ACL4SSR@dev/SingBox/CustomRules/Gemini.srs",
+                "download_detour": "DIRECT"
+            },
+            {
+                "tag": "conjbai",
+                "type": "remote",
+                "format": "binary",
+                "url": "https://cdn.jsdelivr.net/gh/DEAN-Cherry/ACL4SSR@dev/SingBox/CustomRules/IDEAI.srs",
+                "download_detour": "DIRECT"
+            },
+            {
+                "tag": "netease-music",
+                "type": "remote",
+                "format": "binary",
+                "url": "https://cdn.jsdelivr.net/gh/DEAN-Cherry/meta-rules-dat@sing/bm7/NetEaseMusic.srs",
+                "download_detour": "DIRECT"
+            },
+            {
+                "tag": "games-1",
+                "type": "remote",
+                "format": "binary",
+                "url": "https://cdn.jsdelivr.net/gh/DEAN-Cherry/meta-rules-dat@sing/geo/geosite/epicgames.srs",
+                "download_detour": "DIRECT"
+            },
+            {
+                "tag": "games-2",
+                "type": "remote",
+                "format": "binary",
+                "url": "https://cdn.jsdelivr.net/gh/DEAN-Cherry/meta-rules-dat@sing/bm7/Origin.srs",
+                "download_detour": "DIRECT"
+            },
+            {
+                "tag": "games-3",
+                "type": "remote",
+                "format": "binary",
+                "url": "https://cdn.jsdelivr.net/gh/DEAN-Cherry/meta-rules-dat@sing/bm7/PlayStation.srs",
+                "download_detour": "DIRECT"
+            },
+            {
+                "tag": "games-4",
+                "type": "remote",
+                "format": "binary",
+                "url": "https://cdn.jsdelivr.net/gh/DEAN-Cherry/ACL4SSR@dev/SingBox/CustomRules/Steam.srs",
+                "download_detour": "DIRECT"
+            },
+            {
+                "tag": "games-5",
+                "type": "remote",
+                "format": "binary",
+                "url": "https://cdn.jsdelivr.net/gh/DEAN-Cherry/meta-rules-dat@sing/bm7/Nintendo.srs",
+                "download_detour": "DIRECT"
+            },
+            {
+                "tag": "youtube",
+                "type": "remote",
+                "format": "binary",
+                "url": "https://cdn.jsdelivr.net/gh/DEAN-Cherry/meta-rules-dat@sing/bm7/YouTube.srs",
+                "download_detour": "DIRECT"
+            },
+            {
+                "tag": "netflix",
+                "type": "remote",
+                "format": "binary",
+                "url": "https://cdn.jsdelivr.net/gh/DEAN-Cherry/meta-rules-dat@sing/bm7/Netflix.srs",
+                "download_detour": "DIRECT"
+            },
+            {
+                "tag": "baha",
+                "type": "remote",
+                "format": "binary",
+                "url": "https://cdn.jsdelivr.net/gh/DEAN-Cherry/meta-rules-dat@sing/bm7/Bahamut.srs",
+                "download_detour": "DIRECT"
+            },
+            {
+                "tag": "bilibili-hmt",
+                "type": "remote",
+                "format": "binary",
+                "url": "https://cdn.jsdelivr.net/gh/DEAN-Cherry/ACL4SSR@dev/SingBox/CustomRules/BilibiliHMT.srs",
+                "download_detour": "DIRECT"
+            },
+            {
+                "tag": "bilibili",
+                "type": "remote",
+                "format": "binary",
+                "url": "https://cdn.jsdelivr.net/gh/DEAN-Cherry/ACL4SSR@dev/SingBox/CustomRules/Bilibili.srs",
+                "download_detour": "DIRECT"
+            },
+            {
+                "tag": "media-cn",
+                "type": "remote",
+                "format": "binary",
+                "url": "https://cdn.jsdelivr.net/gh/DEAN-Cherry/meta-rules-dat@sing/bm7/ChinaMedia.srs",
+                "download_detour": "DIRECT"
+            },
+            {
+                "tag": "media-proxy",
+                "type": "remote",
+                "format": "binary",
+                "url": "https://cdn.jsdelivr.net/gh/DEAN-Cherry/ACL4SSR@dev/SingBox/CustomRules/ProxyMedia.srs",
+                "download_detour": "DIRECT"
+            },
+            {
+                "tag": "proxy",
+                "type": "remote",
+                "format": "binary",
+                "url": "https://cdn.jsdelivr.net/gh/DEAN-Cherry/ACL4SSR@dev/SingBox/CustomRules/Proxy.srs",
+                "download_detour": "DIRECT"
+            },
+            {
+                "tag": "server",
+                "type": "remote",
+                "format": "binary",
+                "url": "https://cdn.jsdelivr.net/gh/DEAN-Cherry/ACL4SSR@dev/SingBox/CustomRules/BryanServer.srs",
+                "download_detour": "DIRECT"
+            },
+            {
+                "tag": "cn",
+                "type": "remote",
+                "format": "binary",
+                "url": "https://cdn.jsdelivr.net/gh/DEAN-Cherry/meta-rules-dat@sing/bm7/China.srs",
+                "download_detour": "DIRECT"
+            },
+            {
+                "tag": "cn-ip",
+                "type": "remote",
+                "format": "binary",
+                "url": "https://cdn.jsdelivr.net/gh/DEAN-Cherry/meta-rules-dat@sing/bm7/ChinaIPs.srs",
+                "download_detour": "DIRECT"
+            },
+            {
+                "tag": "cloud-cn",
+                "type": "remote",
+                "format": "binary",
+                "url": "https://cdn.jsdelivr.net/gh/DEAN-Cherry/meta-rules-dat@sing/bm7/CloudCN.srs",
+                "download_detour": "DIRECT"
+            },
+            {
+                "tag": "download",
+                "type": "remote",
+                "format": "binary",
+                "url": "https://cdn.jsdelivr.net/gh/DEAN-Cherry/meta-rules-dat@sing/bm7/Download.srs",
+                "download_detour": "DIRECT"
+            }
+        ],
+        "final": "🐟 漏网之鱼"
+    },
+    "experimental": {
+        "clash_api": {
+            "external_controller": "0.0.0.0:9999",
+            "external_ui": "ui",
+            "secret": "",
+            "default_mode": "Rule"
+        }
+    }
+}

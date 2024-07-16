@@ -1,0 +1,143 @@
+{
+  "dns": {
+    "servers": [
+      { "tag": "dns_block", "address": "rcode://success" },
+      {
+        "tag": "dns_direct",
+        "address": [
+          "https://223.5.5.5/dns-query",
+          "https://1.12.12.12/dns-query"
+        ],
+        "strategy": "prefer_ipv6",
+        "detour": "DIRECT"
+      },
+      {
+        "tag": "dns_tx",
+        "address": "https://doh.pub/dns-query",
+        "address_resolver": "dns_ip",
+        "strategy": "prefer_ipv6",
+        "detour": "DIRECT"
+      },
+      {
+        "tag": "dns_proxy",
+        "address": ["https://1.1.1.1/dns-query", "https://8.8.8.8/dns-query"]
+      },
+      {
+        "tag": "dns_google",
+        "address": "https://8.8.8.8/dns-query"
+      },
+      {
+        "tag": "local",
+        "address": "local"
+      },
+      {
+        "tag": "dns_ip",
+        "address": "https://223.5.5.5/dns-query",
+        "detour": "DIRECT"
+      },
+      { "tag": "dns_fakeip", "address": "fakeip" }
+    ],
+    "rules": [
+      { "outbound": "any", "server": "dns_direct" },
+      { "clash_mode": "Global", "server": "dns_fakeip" },
+      {
+        "clash_mode": "Direct",
+        "server": "dns_direct"
+      },
+      {
+        "rule_set": ["ads", "adb-1", "adb-2", "ads-p", "privacy"],
+        "server": "dns_block"
+      },
+      {
+        "rule_set": [
+          "google-fcm",
+          "google",
+          "telegram",
+          "microsoft-bing",
+          "microsoft-cloud",
+          "microsoft-service",
+          "openai",
+          "gemini",
+          "conjbai",
+          "server",
+          "youtube",
+          "netflix",
+          "baha",
+          "media-proxy",
+          "proxy"
+        ],
+        "query_type": ["A", "AAAA"],
+        "rewrite_ttl": 0,
+        "disable_cache": true,
+        "server": "dns_fakeip"
+      },
+      {
+        "rule_set": [
+          "google-fcm",
+          "google",
+          "telegram",
+          "microsoft-bing",
+          "microsoft-cloud",
+          "microsoft-service",
+          "openai",
+          "gemini",
+          "conjbai",
+          "server",
+          "youtube",
+          "netflix",
+          "baha",
+          "media-proxy",
+          "proxy",
+          "games-1",
+          "games-2",
+          "games-3",
+          "games-4",
+          "games-5"
+        ],
+        "server": "dns_proxy"
+      },
+      {
+        "query_type": ["A", "AAAA"],
+        "rule_set": [
+          "direct-0",
+          "direct-1",
+          "google-cn",
+          "direct-3",
+          "apple",
+          "netease-music",
+          "bilibili",
+          "media-cn",
+          "cn",
+          "cn-ip",
+          "cloud-cn",
+          "download"
+        ],
+        "server": "dns_direct"
+      },
+      {
+        "fallback_rules": [
+          {
+            "rule_set": ["cn-ip"],
+            "invert": true
+          }
+        ],
+        "server": "dns_proxy",
+        "rewrite_ttl": 1
+      },
+      {
+        "query_type": ["A", "AAAA"],
+        "rewrite_ttl": 0,
+        "disable_cache": true,
+        "server": "dns_fakeip"
+      }
+    ],
+    "final": "dns_proxy",
+    "independent_cache": true,
+    "reverse_mapping": true,
+    "fakeip": {
+      "enabled": true,
+      "inet6_range": "fc00::/18",
+      "inet4_range": "198.18.0.0/15"
+    }
+  }
+}
