@@ -91,9 +91,6 @@
                 "rewrite_ttl": 0
             },
             {
-                "query_type": [
-                    "A"
-                ],
                 "rule_set": [
                     "google-fcm",
                     "google",
@@ -111,14 +108,15 @@
                     "media-proxy",
                     "proxy"
                 ],
-                "rewrite_ttl": 1,
-                "server": "dns_fakeip"
-            },
-            {
                 "query_type": [
                     "A",
                     "AAAA"
                 ],
+                "rewrite_ttl": 0,
+                "disable_cache": true,
+                "server": "dns_fakeip"
+            },
+            {
                 "rule_set": [
                     "games-1",
                     "games-2",
@@ -126,14 +124,9 @@
                     "games-4",
                     "games-5"
                 ],
-                "server": "dns_proxy",
-                "disable_cache": true
+                "server": "dns_proxy"
             },
             {
-                "query_type": [
-                    "A",
-                    "AAAA"
-                ],
                 "rule_set": [
                     "direct-0",
                     "direct-1",
@@ -161,10 +154,19 @@
                     {
                         "match_all": true,
                         "server": "dns_fakeip",
-                        "rewrite_ttl": 1
+                        "rewrite_ttl": 0
                     }
                 ],
                 "server": "dns_proxy"
+            },
+            {
+                "query_type": [
+                    "A",
+                    "AAAA"
+                ],
+                "rewrite_ttl": 0,
+                "disable_cache": true,
+                "server": "dns_fakeip"
             }
         ],
         "final": "dns_direct",
