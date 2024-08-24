@@ -90,6 +90,10 @@
                 "rewrite_ttl": 0
             },
             {
+                "query_type": [
+                    "A",
+                    "AAAA"
+                ],
                 "rule_set": [
                     "google-fcm",
                     "google",
@@ -111,6 +115,10 @@
                 "server": "dns_fakeip"
             },
             {
+                "query_type": [
+                    "A",
+                    "AAAA"
+                ],
                 "rule_set": [
                     "games-1",
                     "games-2",
