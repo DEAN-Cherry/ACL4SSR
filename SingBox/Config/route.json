@@ -45,6 +45,12 @@
     ],
     "rule_set": [
       {
+        "tag": "fakeip-filter",
+        "type": "remote",
+        "format": "binary",
+        "url": "https://github.com/DustinWin/ruleset_geodata/releases/download/sing-box-ruleset/fakeip-filter.srs"
+      },
+      {
         "tag": "direct-0",
         "type": "remote",
         "format": "binary",
