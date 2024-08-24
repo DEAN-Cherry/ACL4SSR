@@ -57,7 +57,8 @@
             },
             {
                 "tag": "local",
-                "address": "local"
+                "address": "local",
+                "detour": "DIRECT"
             },
             {
                 "tag": "dns_fakeip",
@@ -91,8 +92,7 @@
             },
             {
                 "query_type": [
-                    "A",
-                    "AAAA"
+                    "A"
                 ],
                 "rule_set": [
                     "google-fcm",
@@ -111,7 +111,7 @@
                     "media-proxy",
                     "proxy"
                 ],
-                "rewrite_ttl": 0,
+                "rewrite_ttl": 1,
                 "server": "dns_fakeip"
             },
             {
@@ -161,13 +161,13 @@
                     {
                         "match_all": true,
                         "server": "dns_fakeip",
-                        "rewrite_ttl": 0
+                        "rewrite_ttl": 1
                     }
                 ],
                 "server": "dns_proxy"
             }
         ],
-        "final": "dns_proxy",
+        "final": "dns_direct",
         "independent_cache": true,
         "reverse_mapping": true,
         "fakeip": {

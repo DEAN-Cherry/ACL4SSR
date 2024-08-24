@@ -43,7 +43,8 @@
       },
       {
         "tag": "local",
-        "address": "local"
+        "address": "local",
+        "detour": "DIRECT"
       },
       { "tag": "dns_fakeip", "address": "fakeip" }
     ],
@@ -58,7 +59,7 @@
         "rewrite_ttl": 0
       },
       {
-        "query_type": ["A", "AAAA"],
+        "query_type": ["A"],
         "rule_set": [
           "google-fcm",
           "google",
@@ -76,7 +77,7 @@
           "media-proxy",
           "proxy"
         ],
-        "rewrite_ttl": 0,
+        "rewrite_ttl": 1,
         "server": "dns_fakeip"
       },
       {
@@ -106,12 +107,12 @@
       {
         "fallback_rules": [
           { "rule_set": ["cn-ip"], "server": "dns_direct" },
-          { "match_all": true, "server": "dns_fakeip", "rewrite_ttl": 0 }
+          { "match_all": true, "server": "dns_fakeip", "rewrite_ttl": 1 }
         ],
         "server": "dns_proxy"
       }
     ],
-    "final": "dns_proxy",
+    "final": "dns_direct",
     "independent_cache": true,
     "reverse_mapping": true,
     "fakeip": {
