@@ -54,9 +54,7 @@
       { "clash_mode": "Direct", "server": "dns_direct" },
       {
         "rule_set": ["ads", "adb-1", "adb-2", "ads-p", "privacy"],
-        "server": "dns_block",
-        "disable_cache": true,
-        "rewrite_ttl": 0
+        "server": "dns_block"
       },
       {
         "rule_set": [
@@ -77,7 +75,7 @@
           "proxy"
         ],
         "query_type": ["A", "AAAA"],
-        "rewrite_ttl": 0,
+        "rewrite_ttl": 1,
         "disable_cache": true,
         "server": "dns_fakeip"
       },
@@ -105,18 +103,18 @@
       {
         "fallback_rules": [
           { "rule_set": ["cn-ip"], "server": "dns_direct" },
-          { "match_all": true, "server": "dns_fakeip", "rewrite_ttl": 0 }
+          { "match_all": true, "server": "dns_fakeip", "rewrite_ttl": 1 }
         ],
         "server": "dns_proxy"
       },
       {
         "query_type": ["A", "AAAA"],
-        "rewrite_ttl": 0,
+        "rewrite_ttl": 1,
         "disable_cache": true,
         "server": "dns_fakeip"
       }
     ],
-    "final": "dns_direct",
+    "final": "dns_proxy",
     "independent_cache": true,
     "reverse_mapping": true,
     "fakeip": {

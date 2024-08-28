@@ -86,9 +86,7 @@
                     "ads-p",
                     "privacy"
                 ],
-                "server": "dns_block",
-                "disable_cache": true,
-                "rewrite_ttl": 0
+                "server": "dns_block"
             },
             {
                 "rule_set": [
@@ -112,7 +110,7 @@
                     "A",
                     "AAAA"
                 ],
-                "rewrite_ttl": 0,
+                "rewrite_ttl": 1,
                 "disable_cache": true,
                 "server": "dns_fakeip"
             },
@@ -154,7 +152,7 @@
                     {
                         "match_all": true,
                         "server": "dns_fakeip",
-                        "rewrite_ttl": 0
+                        "rewrite_ttl": 1
                     }
                 ],
                 "server": "dns_proxy"
@@ -164,12 +162,12 @@
                     "A",
                     "AAAA"
                 ],
-                "rewrite_ttl": 0,
+                "rewrite_ttl": 1,
                 "disable_cache": true,
                 "server": "dns_fakeip"
             }
         ],
-        "final": "dns_direct",
+        "final": "dns_proxy",
         "independent_cache": true,
         "reverse_mapping": true,
         "fakeip": {
