@@ -75,7 +75,7 @@
           "proxy"
         ],
         "query_type": ["A", "AAAA"],
-        "rewrite_ttl": 0,
+        "rewrite_ttl": 1,
         "disable_cache": true,
         "server": "dns_fakeip"
       },
@@ -103,13 +103,13 @@
       {
         "fallback_rules": [
           { "rule_set": ["cn-ip"], "server": "dns_direct" },
-          { "match_all": true, "server": "dns_fakeip", "rewrite_ttl": 0 }
+          { "match_all": true, "server": "dns_fakeip", "rewrite_ttl": 3 }
         ],
         "server": "dns_proxy"
       },
       {
         "query_type": ["A", "AAAA"],
-        "rewrite_ttl": 0,
+        "rewrite_ttl": 1,
         "disable_cache": true,
         "server": "dns_fakeip"
       }
@@ -119,7 +119,7 @@
     "reverse_mapping": true,
     "fakeip": {
       "enabled": true,
-      "inet6_range": "fc00::/18",
+      "inet6_range": "fc00::/15",
       "inet4_range": "198.18.0.0/15"
     }
   }
